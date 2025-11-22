@@ -1,0 +1,11 @@
+rapidfuzz
+numpy
+pandas
+matplotlib
+scikit-learn
+tqdm
+jupyterlab
+xgboost
+fiona
+shapely
+lxml
