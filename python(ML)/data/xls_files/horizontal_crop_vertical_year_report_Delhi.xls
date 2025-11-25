@@ -1,0 +1,743 @@
+ <table border="2px" id="apyreport" class="table table-hover table-bordered text-center">
+
+      <thead>
+        <!--tr>
+          <th rowspan="3">S.No.</th>
+          <th rowspan="3">State</th>
+          <th rowspan="3">District</th>
+          <th rowspan="3">Year</th>
+          <pre>Array
+(
+    [4] => Array
+        (
+            [crop_name] => Bajra
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [7] => Array
+        (
+            [crop_name] => Barley
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [13] => Array
+        (
+            [crop_name] => Gram
+            [session] => Array
+                (
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [3] => Array
+        (
+            [crop_name] => Jowar
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [5] => Array
+        (
+            [crop_name] => Maize
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [45] => Array
+        (
+            [crop_name] => Potato
+            [session] => Array
+                (
+                    [Y] => Array
+                        (
+                            [session_id] => Y
+                            [session_name] => Whole Year
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [crop_name] => Rice
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [62] => Array
+        (
+            [crop_name] => Sugarcane
+            [session] => Array
+                (
+                    [Y] => Array
+                        (
+                            [session_id] => Y
+                            [session_name] => Whole Year
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [crop_name] => Wheat
+            [session] => Array
+                (
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [17] => Array
+        (
+            [crop_name] => Rapeseed &Mustard
+            [session] => Array
+                (
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+)
+</pre>          <th colspan="3" class="text-center">Bajra</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Barley</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Gram</th>
+
+                              <tr>
+                
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Jowar</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Maize</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Potato</th>
+
+                              <tr>
+                
+              <th colspan="3">Whole Year</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Rice</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Sugarcane</th>
+
+                              <tr>
+                
+              <th colspan="3">Whole Year</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Wheat</th>
+
+                              <tr>
+                
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Rapeseed &Mustard</th>
+
+                              <tr>
+                
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                </tr-->
+        <!-- tr>
+          <th colspan="3">Season 1</th>
+          <th colspan="3">Season 2</th>
+        </tr>
+        <tr scope="">
+          <th scope="colgroup">A</th>
+          <th scope="colgroup">P</th>
+          <th scope="colgroup">Y</th>
+
+          <th scope="colgroup">A</th>
+          <th scope="colgroup">P</th>
+          <th scope="colgroup">Y</th>
+        </tr -->
+		<tr>
+			<!-- th rowspan="3">S.No.</th -->
+			<th rowspan="3">State</th>
+			<th rowspan="3">District</th>
+			<th rowspan="3">Year</th>
+							<th colspan="3">Bajra</th><th colspan="3">Barley</th><th colspan="3">Gram</th><th colspan="3">Jowar</th><th colspan="3">Maize</th><th colspan="3">Potato</th><th colspan="3">Rice</th><th colspan="3">Sugarcane</th><th colspan="3">Wheat</th><th colspan="3">Rapeseed &amp;Mustard</th>					  </tr>
+		  <tr>
+							<th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Rabi</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Whole Year</th><th colspan="3">Kharif</th><th colspan="3">Whole Year</th><th colspan="3">Rabi</th><th colspan="3">Rabi</th>						</tr>
+			<tr>
+							<th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th>						</tr>
+      </thead>
+
+      <tbody>
+        
+        <tr>
+          <!-- td rowspan="8">1</td -->
+          <td rowspan="8">1. Delhi</td>
+          <td rowspan="8">1. Delhi_Total</td>
+
+          <td>2012 - 2013</td>
+                    <td>1,519.00</td>
+          <td>3,815.00</td>
+          <td>
+            2.51          </td>
+                  <td>65.00</td>
+          <td>183.00</td>
+          <td>
+            2.82          </td>
+                  <td>44.00</td>
+          <td>62.00</td>
+          <td>
+            1.41          </td>
+                  <td>3,319.00</td>
+          <td>3,008.00</td>
+          <td>
+            0.91          </td>
+                  <td>37.00</td>
+          <td>828.00</td>
+          <td>
+            22.38          </td>
+                  <td>689.00</td>
+          <td>14,652.00</td>
+          <td>
+            21.27          </td>
+                  <td>6,068.00</td>
+          <td>19,768.00</td>
+          <td>
+            3.26          </td>
+                  <td>3.00</td>
+          <td>226.00</td>
+          <td>
+            75.33          </td>
+                  <td>19,450.00</td>
+          <td>84,802.00</td>
+          <td>
+            4.36          </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+        
+
+        </tr>
+        
+
+          
+                      <tr>
+
+              <!-- td rowspan="">Delhi_Total</td -->
+              <td>2013 - 2014</td>
+                            <td>1,519.00</td>
+              <td>3,815.00</td>
+              <td>
+                2.51              </td>
+                          <td>65.00</td>
+              <td>183.00</td>
+              <td>
+                2.82              </td>
+                          <td>44.00</td>
+              <td>62.00</td>
+              <td>
+                1.41              </td>
+                          <td>3,319.00</td>
+              <td>3,008.00</td>
+              <td>
+                0.91              </td>
+                          <td>37.00</td>
+              <td>828.00</td>
+              <td>
+                22.38              </td>
+                          <td>689.00</td>
+              <td>14,652.00</td>
+              <td>
+                21.27              </td>
+                          <td>6,068.00</td>
+              <td>19,768.00</td>
+              <td>
+                3.26              </td>
+                          <td>3.00</td>
+              <td>226.00</td>
+              <td>
+                75.33              </td>
+                          <td>19,450.00</td>
+              <td>86,498.00</td>
+              <td>
+                4.45              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Delhi_Total</td -->
+              <td>2014 - 2015</td>
+                            <td>1,520.00</td>
+              <td>3,817.00</td>
+              <td>
+                2.51              </td>
+                          <td>64.00</td>
+              <td>186.00</td>
+              <td>
+                2.91              </td>
+                          <td>41.00</td>
+              <td>54.00</td>
+              <td>
+                1.32              </td>
+                          <td>3,242.00</td>
+              <td>2,937.00</td>
+              <td>
+                0.91              </td>
+                          <td>35.00</td>
+              <td>783.00</td>
+              <td>
+                22.37              </td>
+                          <td>436.00</td>
+              <td>9,273.00</td>
+              <td>
+                21.27              </td>
+                          <td>6,035.00</td>
+              <td>17,269.00</td>
+              <td>
+                2.86              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>19,360.00</td>
+              <td>85,558.00</td>
+              <td>
+                4.42              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Delhi_Total</td -->
+              <td>2015 - 2016</td>
+                            <td>1,482.00</td>
+              <td>3,256.00</td>
+              <td>
+                2.20              </td>
+                          <td>62.00</td>
+              <td>181.00</td>
+              <td>
+                2.92              </td>
+                          <td>25.00</td>
+              <td>53.00</td>
+              <td>
+                2.12              </td>
+                          <td>3,161.00</td>
+              <td>3,034.00</td>
+              <td>
+                0.96              </td>
+                          <td>34.00</td>
+              <td>174.00</td>
+              <td>
+                5.12              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5,884.00</td>
+              <td>16,837.00</td>
+              <td>
+                2.86              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>19,050.00</td>
+              <td>83,419.00</td>
+              <td>
+                4.38              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Delhi_Total</td -->
+              <td>2016 - 2017</td>
+                            <td>1,487.00</td>
+              <td>3,278.00</td>
+              <td>
+                2.20              </td>
+                          <td>68.00</td>
+              <td>184.00</td>
+              <td>
+                2.71              </td>
+                          <td>25.00</td>
+              <td>53.00</td>
+              <td>
+                2.12              </td>
+                          <td>3,193.00</td>
+              <td>3,065.00</td>
+              <td>
+                0.96              </td>
+                          <td>34.00</td>
+              <td>174.00</td>
+              <td>
+                5.12              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5,973.00</td>
+              <td>17,260.00</td>
+              <td>
+                2.89              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>19,622.00</td>
+              <td>87,182.00</td>
+              <td>
+                4.44              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Delhi_Total</td -->
+              <td>2017 - 2018</td>
+                            <td>1,502.00</td>
+              <td>3,256.00</td>
+              <td>
+                2.17              </td>
+                          <td>70.00</td>
+              <td>181.00</td>
+              <td>
+                2.59              </td>
+                          <td>25.00</td>
+              <td>10.00</td>
+              <td>
+                0.40              </td>
+                          <td>3,201.00</td>
+              <td>3,035.00</td>
+              <td>
+                0.95              </td>
+                          <td>36.00</td>
+              <td>174.00</td>
+              <td>
+                4.83              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5,854.00</td>
+              <td>16,837.00</td>
+              <td>
+                2.88              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>19,671.00</td>
+              <td>83,419.00</td>
+              <td>
+                4.24              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Delhi_Total</td -->
+              <td>2018 - 2019</td>
+                            <td>1,478.00</td>
+              <td>3,249.00</td>
+              <td>
+                2.20              </td>
+                          <td>59.00</td>
+              <td>172.00</td>
+              <td>
+                2.92              </td>
+                          <td>2.00</td>
+              <td>4.00</td>
+              <td>
+                2.00              </td>
+                          <td>3,155.00</td>
+              <td>3,032.00</td>
+              <td>
+                0.96              </td>
+                          <td>20.00</td>
+              <td>102.00</td>
+              <td>
+                5.10              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5,848.00</td>
+              <td>16,826.00</td>
+              <td>
+                2.88              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>19,220.00</td>
+              <td>82,876.00</td>
+              <td>
+                4.31              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Delhi_Total</td -->
+              <td>2019 - 2020</td>
+                            <td>1,475.00</td>
+              <td>4,873.00</td>
+              <td>
+                3.30              </td>
+                          <td>60.00</td>
+              <td>180.00</td>
+              <td>
+                3.00              </td>
+                          <td>2.00</td>
+              <td>4.00</td>
+              <td>
+                2.00              </td>
+                          <td>3,150.00</td>
+              <td>3,150.00</td>
+              <td>
+                1.00              </td>
+                          <td>20.00</td>
+              <td>102.00</td>
+              <td>
+                5.10              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5,848.00</td>
+              <td>17,580.00</td>
+              <td>
+                3.01              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>19,228.00</td>
+              <td>82,905.00</td>
+              <td>
+                4.31              </td>
+                          <td>3,250.00</td>
+              <td>8,125.00</td>
+              <td>
+                2.50              </td>
+            
+
+            </tr>
+                      
+      </tbody>
+      </table>

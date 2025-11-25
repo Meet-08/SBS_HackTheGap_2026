@@ -1,0 +1,1379 @@
+ <table border="2px" id="apyreport" class="table table-hover table-bordered text-center">
+
+      <thead>
+        <!--tr>
+          <th rowspan="3">S.No.</th>
+          <th rowspan="3">State</th>
+          <th rowspan="3">District</th>
+          <th rowspan="3">Year</th>
+          <pre>Array
+(
+    [14] => Array
+        (
+            [crop_name] => Arhar/Tur
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [15] => Array
+        (
+            [crop_name] => Groundnut
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [3] => Array
+        (
+            [crop_name] => Jowar
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [5] => Array
+        (
+            [crop_name] => Maize
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [21] => Array
+        (
+            [crop_name] => Niger seed
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [84] => Array
+        (
+            [crop_name] => Other  Rabi pulses
+            [session] => Array
+                (
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [6] => Array
+        (
+            [crop_name] => Ragi
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [1] => Array
+        (
+            [crop_name] => Rice
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [9] => Array
+        (
+            [crop_name] => Small millets
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [55] => Array
+        (
+            [crop_name] => Urad
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [80] => Array
+        (
+            [crop_name] => Other Kharif pulses
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [17] => Array
+        (
+            [crop_name] => Rapeseed &Mustard
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [155] => Array
+        (
+            [crop_name] => Cowpea(Lobia)
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [13] => Array
+        (
+            [crop_name] => Gram
+            [session] => Array
+                (
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [16] => Array
+        (
+            [crop_name] => Sesamum
+            [session] => Array
+                (
+                    [K] => Array
+                        (
+                            [session_id] => K
+                            [session_name] => Kharif
+                        )
+
+                )
+
+        )
+
+    [62] => Array
+        (
+            [crop_name] => Sugarcane
+            [session] => Array
+                (
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [crop_name] => Wheat
+            [session] => Array
+                (
+                    [R] => Array
+                        (
+                            [session_id] => R
+                            [session_name] => Rabi
+                        )
+
+                )
+
+        )
+
+)
+</pre>          <th colspan="4" class="text-center">Arhar/Tur</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Groundnut</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Jowar</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Maize</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="4" class="text-center">Niger seed</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Other  Rabi pulses</th>
+
+                              <tr>
+                
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Ragi</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="4" class="text-center">Rice</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Small millets</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Urad</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Other Kharif pulses</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="4" class="text-center">Rapeseed &Mustard</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Cowpea(Lobia)</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Gram</th>
+
+                              <tr>
+                
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Sesamum</th>
+
+                              <tr>
+                
+              <th colspan="3">Kharif</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Sugarcane</th>
+
+                              <tr>
+                
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                  <th colspan="3" class="text-center">Wheat</th>
+
+                              <tr>
+                
+              <th colspan="3">Rabi</th>
+                            </tr>
+                          <tr>
+                <th>A</th>
+                <th>P</th>
+                <th>Y</th>
+              </tr>
+
+
+            
+
+            
+
+                </tr-->
+        <!-- tr>
+          <th colspan="3">Season 1</th>
+          <th colspan="3">Season 2</th>
+        </tr>
+        <tr scope="">
+          <th scope="colgroup">A</th>
+          <th scope="colgroup">P</th>
+          <th scope="colgroup">Y</th>
+
+          <th scope="colgroup">A</th>
+          <th scope="colgroup">P</th>
+          <th scope="colgroup">Y</th>
+        </tr -->
+		<tr>
+			<!-- th rowspan="3">S.No.</th -->
+			<th rowspan="3">State</th>
+			<th rowspan="3">District</th>
+			<th rowspan="3">Year</th>
+							<th colspan="6">Arhar/Tur</th><th colspan="3">Groundnut</th><th colspan="3">Jowar</th><th colspan="3">Maize</th><th colspan="6">Niger seed</th><th colspan="3">Other  Rabi pulses</th><th colspan="3">Ragi</th><th colspan="6">Rice</th><th colspan="3">Small millets</th><th colspan="3">Urad</th><th colspan="3">Other Kharif pulses</th><th colspan="6">Rapeseed &amp;Mustard</th><th colspan="3">Cowpea(Lobia)</th><th colspan="3">Gram</th><th colspan="3">Sesamum</th><th colspan="3">Sugarcane</th><th colspan="3">Wheat</th>					  </tr>
+		  <tr>
+							<th colspan="3">Kharif</th><th colspan="3">Rabi</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Rabi</th><th colspan="3">Rabi</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Rabi</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Kharif</th><th colspan="3">Rabi</th><th colspan="3">Kharif</th><th colspan="3">Rabi</th><th colspan="3">Kharif</th><th colspan="3">Rabi</th><th colspan="3">Rabi</th>						</tr>
+			<tr>
+							<th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="2">Area (Hectare)</th><th count="2">Production (Tonnes)</th><th count="2">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="2">Area (Hectare)</th><th count="2">Production (Tonnes)</th><th count="2">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="2">Area (Hectare)</th><th count="2">Production (Tonnes)</th><th count="2">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="2">Area (Hectare)</th><th count="2">Production (Tonnes)</th><th count="2">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th><th count="1">Area (Hectare)</th><th count="1">Production (Tonnes)</th><th count="1">Yield (Tonne/Hectare)</th>						</tr>
+      </thead>
+
+      <tbody>
+        
+        <tr>
+          <!-- td rowspan="8">1</td -->
+          <td rowspan="8">1. Dadra and Nagar Haveli</td>
+          <td rowspan="8">1. Dadra and Nagar Haveli</td>
+
+          <td>2012 - 2013</td>
+                    <td>1,325.00</td>
+          <td>1,060.00</td>
+          <td>
+            0.80          </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td>20.00</td>
+          <td>17.00</td>
+          <td>
+            0.85          </td>
+                  <td>475.00</td>
+          <td>380.00</td>
+          <td>
+            0.80          </td>
+                  <td>75.00</td>
+          <td>75.00</td>
+          <td>
+            1.00          </td>
+                  <td>139.00</td>
+          <td>84.00</td>
+          <td>
+            0.60          </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td>2,630.00</td>
+          <td>2,630.00</td>
+          <td>
+            1.00          </td>
+                  <td>1,040.00</td>
+          <td>1,071.00</td>
+          <td>
+            1.03          </td>
+                  <td>13,490.00</td>
+          <td>26,036.00</td>
+          <td>
+            1.93          </td>
+                  <td>344.00</td>
+          <td>668.00</td>
+          <td>
+            1.94          </td>
+                  <td>231.00</td>
+          <td>219.00</td>
+          <td>
+            0.95          </td>
+                  <td>1,378.00</td>
+          <td>1,102.00</td>
+          <td>
+            0.80          </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+                  <td></td>
+          <td></td>
+          <td>
+                      </td>
+        
+
+        </tr>
+        
+
+          
+                      <tr>
+
+              <!-- td rowspan="">Dadra and Nagar Haveli</td -->
+              <td>2013 - 2014</td>
+                            <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>450.00</td>
+              <td>360.00</td>
+              <td>
+                0.80              </td>
+                          <td>75.00</td>
+              <td>75.00</td>
+              <td>
+                1.00              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>1,010.00</td>
+              <td>1,040.00</td>
+              <td>
+                1.03              </td>
+                          <td>13,255.00</td>
+              <td>24,866.00</td>
+              <td>
+                1.88              </td>
+                          <td>325.00</td>
+              <td>631.00</td>
+              <td>
+                1.94              </td>
+                          <td>231.00</td>
+              <td>219.00</td>
+              <td>
+                0.95              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Dadra and Nagar Haveli</td -->
+              <td>2014 - 2015</td>
+                            <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>465.00</td>
+              <td>372.00</td>
+              <td>
+                0.80              </td>
+                          <td>75.00</td>
+              <td>75.00</td>
+              <td>
+                1.00              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>1,030.00</td>
+              <td>1,060.00</td>
+              <td>
+                1.03              </td>
+                          <td>13,490.00</td>
+              <td>25,181.00</td>
+              <td>
+                1.87              </td>
+                          <td>376.00</td>
+              <td>726.00</td>
+              <td>
+                1.93              </td>
+                          <td>215.00</td>
+              <td>203.00</td>
+              <td>
+                0.94              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Dadra and Nagar Haveli</td -->
+              <td>2015 - 2016</td>
+                            <td>1,221.00</td>
+              <td>1,010.00</td>
+              <td>
+                0.83              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>16.00</td>
+              <td>15.00</td>
+              <td>
+                0.94              </td>
+                          <td>467.00</td>
+              <td>376.00</td>
+              <td>
+                0.81              </td>
+                          <td>71.00</td>
+              <td>71.00</td>
+              <td>
+                1.00              </td>
+                          <td>133.00</td>
+              <td>79.00</td>
+              <td>
+                0.59              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>1,010.00</td>
+              <td>1,035.00</td>
+              <td>
+                1.02              </td>
+                          <td>13,918.00</td>
+              <td>28,763.00</td>
+              <td>
+                2.07              </td>
+                          <td>419.00</td>
+              <td>835.00</td>
+              <td>
+                1.99              </td>
+                          <td>160.00</td>
+              <td>128.00</td>
+              <td>
+                0.80              </td>
+                          <td>1,127.00</td>
+              <td>1,075.00</td>
+              <td>
+                0.95              </td>
+                          <td>759.00</td>
+              <td>618.00</td>
+              <td>
+                0.81              </td>
+                          <td>11.00</td>
+              <td>10.00</td>
+              <td>
+                0.91              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Dadra and Nagar Haveli</td -->
+              <td>2016 - 2017</td>
+                            <td>1,210.00</td>
+              <td>4,152.00</td>
+              <td>
+                3.43              </td>
+                          <td>350.00</td>
+              <td>350.00</td>
+              <td>
+                1.00              </td>
+                          <td>3.00</td>
+              <td>4.50</td>
+              <td>
+                1.50              </td>
+                          <td>5.00</td>
+              <td>11.00</td>
+              <td>
+                2.20              </td>
+                          <td>4.00</td>
+              <td>4.00</td>
+              <td>
+                1.00              </td>
+                          <td>10.00</td>
+              <td>3.00</td>
+              <td>
+                0.30              </td>
+                          <td>20.00</td>
+              <td>8.00</td>
+              <td>
+                0.40              </td>
+                          <td>150.00</td>
+              <td>105.00</td>
+              <td>
+                0.70              </td>
+                          <td>860.00</td>
+              <td>1,462.00</td>
+              <td>
+                1.70              </td>
+                          <td>14,233.00</td>
+              <td>31,312.00</td>
+              <td>
+                2.20              </td>
+                          <td>150.00</td>
+              <td>525.00</td>
+              <td>
+                3.50              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>990.00</td>
+              <td>990.00</td>
+              <td>
+                1.00              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5.00</td>
+              <td>2.50</td>
+              <td>
+                0.50              </td>
+                          <td>6.00</td>
+              <td>7.20</td>
+              <td>
+                1.20              </td>
+                          <td>100.00</td>
+              <td>105.00</td>
+              <td>
+                1.05              </td>
+                          <td>6.00</td>
+              <td>1.50</td>
+              <td>
+                0.25              </td>
+                          <td>170.00</td>
+              <td>13,600.00</td>
+              <td>
+                80.00              </td>
+                          <td>40.00</td>
+              <td>92.00</td>
+              <td>
+                2.30              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Dadra and Nagar Haveli</td -->
+              <td>2017 - 2018</td>
+                            <td>1,199.00</td>
+              <td>1,013.00</td>
+              <td>
+                0.84              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>17.00</td>
+              <td>16.00</td>
+              <td>
+                0.94              </td>
+                          <td>451.00</td>
+              <td>385.00</td>
+              <td>
+                0.85              </td>
+                          <td>83.00</td>
+              <td>89.00</td>
+              <td>
+                1.07              </td>
+                          <td>129.00</td>
+              <td>88.00</td>
+              <td>
+                0.68              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>1,135.00</td>
+              <td>1,180.00</td>
+              <td>
+                1.04              </td>
+                          <td>13,817.00</td>
+              <td>28,659.00</td>
+              <td>
+                2.07              </td>
+                          <td>409.00</td>
+              <td>799.00</td>
+              <td>
+                1.95              </td>
+                          <td>154.00</td>
+              <td>115.00</td>
+              <td>
+                0.75              </td>
+                          <td>1,015.00</td>
+              <td>985.00</td>
+              <td>
+                0.97              </td>
+                          <td>698.00</td>
+              <td>593.00</td>
+              <td>
+                0.85              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>12.00</td>
+              <td>10.00</td>
+              <td>
+                0.83              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Dadra and Nagar Haveli</td -->
+              <td>2018 - 2019</td>
+                            <td>1,180.00</td>
+              <td>1,298.00</td>
+              <td>
+                1.10              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>3.00</td>
+              <td>4.50</td>
+              <td>
+                1.50              </td>
+                          <td>5.00</td>
+              <td>110.00</td>
+              <td>
+                22.00              </td>
+                          <td>4.00</td>
+              <td>4.00</td>
+              <td>
+                1.00              </td>
+                          <td>10.00</td>
+              <td>3.00</td>
+              <td>
+                0.30              </td>
+                          <td>20.00</td>
+              <td>8.00</td>
+              <td>
+                0.40              </td>
+                          <td>160.00</td>
+              <td>160.00</td>
+              <td>
+                1.00              </td>
+                          <td>890.00</td>
+              <td>1,513.00</td>
+              <td>
+                1.70              </td>
+                          <td>14,250.00</td>
+              <td>30,874.60</td>
+              <td>
+                2.17              </td>
+                          <td>3,350.00</td>
+              <td>8,486.00</td>
+              <td>
+                2.53              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>950.00</td>
+              <td>950.00</td>
+              <td>
+                1.00              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5.00</td>
+              <td>2.50</td>
+              <td>
+                0.50              </td>
+                          <td>6.00</td>
+              <td>7.20</td>
+              <td>
+                1.20              </td>
+                          <td>200.00</td>
+              <td>210.00</td>
+              <td>
+                1.05              </td>
+                          <td>6.00</td>
+              <td>1.50</td>
+              <td>
+                0.25              </td>
+                          <td>150.00</td>
+              <td>12,000.00</td>
+              <td>
+                80.00              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+            
+
+            </tr>
+                      <tr>
+
+              <!-- td rowspan="">Dadra and Nagar Haveli</td -->
+              <td>2019 - 2020</td>
+                            <td>1,100.00</td>
+              <td>1,100.00</td>
+              <td>
+                1.00              </td>
+                          <td>300.00</td>
+              <td>300.00</td>
+              <td>
+                1.00              </td>
+                          <td>3.00</td>
+              <td>4.50</td>
+              <td>
+                1.50              </td>
+                          <td>5.00</td>
+              <td>11.00</td>
+              <td>
+                2.20              </td>
+                          <td>4.00</td>
+              <td>4.00</td>
+              <td>
+                1.00              </td>
+                          <td>10.00</td>
+              <td>3.00</td>
+              <td>
+                0.30              </td>
+                          <td>20.00</td>
+              <td>8.00</td>
+              <td>
+                0.40              </td>
+                          <td>160.00</td>
+              <td>160.00</td>
+              <td>
+                1.00              </td>
+                          <td>900.00</td>
+              <td>1,485.00</td>
+              <td>
+                1.65              </td>
+                          <td>13,450.00</td>
+              <td>27,796.00</td>
+              <td>
+                2.07              </td>
+                          <td>3,350.00</td>
+              <td>8,486.00</td>
+              <td>
+                2.53              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>900.00</td>
+              <td>640.00</td>
+              <td>
+                0.71              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>5.00</td>
+              <td>2.50</td>
+              <td>
+                0.50              </td>
+                          <td>6.00</td>
+              <td>7.20</td>
+              <td>
+                1.20              </td>
+                          <td></td>
+              <td></td>
+              <td>
+                              </td>
+                          <td>6.00</td>
+              <td>1.50</td>
+              <td>
+                0.25              </td>
+                          <td>150.00</td>
+              <td>12,000.00</td>
+              <td>
+                80.00              </td>
+                          <td>50.00</td>
+              <td>120.00</td>
+              <td>
+                2.40              </td>
+            
+
+            </tr>
+                      
+      </tbody>
+      </table>
