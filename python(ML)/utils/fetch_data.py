@@ -106,3 +106,19 @@ async def fetch_weather_async(session, lat, lon, year, season):
                     return None
                 await asyncio.sleep(1)
     return None
+
+
+if __name__ == "__main__":
+    import aiohttp
+
+    async def main():
+        async with aiohttp.ClientSession() as session:
+            soil_data = await fetch_soil_async(session, 28.6139, 77.209)
+            print("Soil Data:", soil_data)
+
+            weather_data = await fetch_weather_async(
+                session, 28.6139, 77.209, 2026, "Whole Year"
+            )
+            print("Weather Data:", weather_data)
+
+    asyncio.run(main())
