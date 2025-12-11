@@ -12,9 +12,9 @@ public record UserRegisterDto(
         String address,
 
         @Length(message = "Pin code must be size of 6", max = 6, min = 6)
-        Integer pinCode
+        String pinCode
 ) {
-    public User toEntity(){
+    public User toEntity() {
         return User.builder()
                 .firstName(firstName)
                 .lastName(lastName)

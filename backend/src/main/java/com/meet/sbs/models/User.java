@@ -35,7 +35,7 @@ public class User {
     private String address;
 
     @Column(length = 6)
-    private Integer pinCode;
+    private String pinCode;
 
     private Role role = Role.USER;
 }
