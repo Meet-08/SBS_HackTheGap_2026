@@ -1,10 +1,18 @@
 import asyncio
+from utils.redis_cache import (
+    get_cached_soil, set_cached_soil,
+    get_cached_weather, set_cached_weather
+)
 
 NASA_SEMAPHORE = asyncio.Semaphore(10)
 SOIL_SEMAPHORE = asyncio.Semaphore(20)
 
 
 async def fetch_soil_async(session, lat, lon):
+    cached = await get_cached_soil(lat, lon)
+    if cached is not None:
+        return cached
+
     url = "https://rest.isric.org/soilgrids/v2.0/properties/query"
     params = [
         ("lat", lat),
@@ -37,13 +45,16 @@ async def fetch_soil_async(session, lat, lon):
                                 return raw / 10.0 if raw is not None else None
                         return None
 
-                    return {
+                    result = {
                         "soil_ph": extract("phh2o"),
                         "soil_oc": extract("ocd"),
                         "clay_pct": extract("clay"),
                         "sand_pct": extract("sand"),
                         "cec_cmol": extract("cec"),
                     }
+
+                    await set_cached_soil(lat, lon, result)
+                    return result
             except Exception:
                 if attempt == 4:
                     return None
@@ -51,8 +62,19 @@ async def fetch_soil_async(session, lat, lon):
     return None
 
 
-async def fetch_weather_async(session, lat, lon, year, season):
+async def _fetch_single_year_weather(session, lat, lon, year, season, use_cache=True):
+    """Helper function to fetch weather data for a single year."""
+    from datetime import datetime
+
     year = int(year)
+    current_year = datetime.now().year
+    is_historical = year < current_year
+
+    if use_cache:
+        cached = await get_cached_weather(lat, lon, year, season)
+        if cached is not None:
+            return cached
+
     s = season.lower()
     if s == "kharif":
         start, end = f"{year}0601", f"{year}0930"
@@ -95,12 +117,16 @@ async def fetch_weather_async(session, lat, lon, year, season):
                     rain = get_vals("PRECTOTCORR")
                     solar = get_vals("ALLSKY_SFC_SW_DWN")
 
-                    return {
+                    result = {
                         "avg_temp": sum(t2m) / len(t2m) if t2m else 0,
                         "humidity_avg": sum(rh2m) / len(rh2m) if rh2m else 0,
                         "rain_total": sum(rain) if rain else 0,
                         "solar_avg": sum(solar) / len(solar) if solar else 0,
                     }
+
+                    if use_cache:
+                        await set_cached_weather(lat, lon, year, season, result, is_historical)
+                    return result
             except Exception:
                 if attempt == 4:
                     return None
@@ -108,16 +134,54 @@ async def fetch_weather_async(session, lat, lon, year, season):
     return None
 
 
+async def fetch_weather_async(session, lat, lon, year, season):
+    from datetime import datetime
+
+    year = int(year)
+    current_year = datetime.now().year
+
+    if year > current_year:
+        cached = await get_cached_weather(lat, lon, year, season)
+        if cached is not None:
+            return cached
+
+        historical_years = range(current_year - 10, current_year)
+
+        tasks = [
+            _fetch_single_year_weather(session, lat, lon, hist_year, season)
+            for hist_year in historical_years
+        ]
+        results = await asyncio.gather(*tasks)
+
+        valid_results = [r for r in results if r is not None]
+
+        if not valid_results:
+            return None
+
+        num_years = len(valid_results)
+        result = {
+            "avg_temp": sum(r["avg_temp"] for r in valid_results) / num_years,
+            "humidity_avg": sum(r["humidity_avg"] for r in valid_results) / num_years,
+            "rain_total": sum(r["rain_total"] for r in valid_results) / num_years,
+            "solar_avg": sum(r["solar_avg"] for r in valid_results) / num_years,
+        }
+
+        await set_cached_weather(lat, lon, year, season, result, is_historical=False)
+        return result
+
+    return await _fetch_single_year_weather(session, lat, lon, year, season)
+
+
 if __name__ == "__main__":
     import aiohttp
 
     async def main():
         async with aiohttp.ClientSession() as session:
-            soil_data = await fetch_soil_async(session, 28.6139, 77.209)
+            soil_data = await fetch_soil_async(session, 26.376476287500054, 91.05235564396247)
             print("Soil Data:", soil_data)
 
             weather_data = await fetch_weather_async(
-                session, 28.6139, 77.209, 2026, "Whole Year"
+                session, 26.376476287500054, 91.05235564396247, 2026, "Whole Year"
             )
             print("Weather Data:", weather_data)
 

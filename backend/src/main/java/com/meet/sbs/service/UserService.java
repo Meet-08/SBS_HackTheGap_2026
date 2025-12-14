@@ -1,8 +1,8 @@
 package com.meet.sbs.service;
 
-import com.meet.sbs.dto.UserLoginDto;
-import com.meet.sbs.dto.UserRegisterDto;
-import com.meet.sbs.dto.UserResponse;
+import com.meet.sbs.dto.user.UserLoginDto;
+import com.meet.sbs.dto.user.UserRegisterDto;
+import com.meet.sbs.dto.user.UserResponse;
 
 public interface UserService {
 

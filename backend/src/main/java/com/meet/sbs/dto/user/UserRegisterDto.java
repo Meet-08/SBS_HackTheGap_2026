@@ -1,4 +1,4 @@
-package com.meet.sbs.dto;
+package com.meet.sbs.dto.user;
 
 import com.meet.sbs.models.User;
 import jakarta.validation.constraints.Email;

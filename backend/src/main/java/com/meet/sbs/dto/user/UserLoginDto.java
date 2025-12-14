@@ -1,4 +1,4 @@
-package com.meet.sbs.dto;
+package com.meet.sbs.dto.user;
 
 public record UserLoginDto(
         String email,

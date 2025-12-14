@@ -37,5 +37,6 @@ public class User {
     @Column(length = 6)
     private String pinCode;
 
+    @Builder.Default
     private Role role = Role.USER;
 }

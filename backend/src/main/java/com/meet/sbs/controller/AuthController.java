@@ -1,8 +1,8 @@
 package com.meet.sbs.controller;
 
-import com.meet.sbs.dto.UserLoginDto;
-import com.meet.sbs.dto.UserRegisterDto;
-import com.meet.sbs.dto.UserResponse;
+import com.meet.sbs.dto.user.UserLoginDto;
+import com.meet.sbs.dto.user.UserRegisterDto;
+import com.meet.sbs.dto.user.UserResponse;
 import com.meet.sbs.service.JwtService;
 import com.meet.sbs.service.UserService;
 import com.meet.sbs.utils.CookieUtil;

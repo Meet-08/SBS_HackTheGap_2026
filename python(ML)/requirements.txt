@@ -9,4 +9,9 @@ xgboost
 fiona
 shapely
 lxml
+fastapi
+uvicorn
 aiohttp
+pydantic-settings
+joblib
+redis

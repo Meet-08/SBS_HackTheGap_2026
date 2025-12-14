@@ -1,8 +1,8 @@
 package com.meet.sbs.service.impl;
 
-import com.meet.sbs.dto.UserLoginDto;
-import com.meet.sbs.dto.UserRegisterDto;
-import com.meet.sbs.dto.UserResponse;
+import com.meet.sbs.dto.user.UserLoginDto;
+import com.meet.sbs.dto.user.UserRegisterDto;
+import com.meet.sbs.dto.user.UserResponse;
 import com.meet.sbs.enums.Role;
 import com.meet.sbs.exception.UserException;
 import com.meet.sbs.repository.UserRepository;
@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 
         var savedUser = userRepository.save(user);
         log.info("User with email {} registered successfully", savedUser.getEmail());
-        return UserResponse.toResponse(savedUser);
+        return Mapper.toUserResponse(savedUser);
     }
 
     @Override
@@ -51,6 +51,6 @@ public class UserServiceImpl implements UserService {
             throw new UserException("Invalid password", HttpStatus.UNAUTHORIZED);
 
         log.info("User with email {} logged in successfully", user.getEmail());
-        return UserResponse.toResponse(user);
+        return Mapper.toUserResponse(user);
     }
 }
