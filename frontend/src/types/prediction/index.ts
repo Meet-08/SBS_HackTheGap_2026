@@ -26,7 +26,7 @@ export interface SoilData {
   cec_cmol: number;
 }
 
-export interface PredictionResponse {
+export interface Prediction {
   predicted_yield_qha: number;
   model_used: string;
   weather: WeatherData;

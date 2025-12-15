@@ -53,4 +53,11 @@ public class UserServiceImpl implements UserService {
         log.info("User with email {} logged in successfully", user.getEmail());
         return Mapper.toUserResponse(user);
     }
+
+    @Override
+    public UserResponse getUserByEmail(String email) {
+        var user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserException("User with email not found", HttpStatus.NOT_FOUND));
+        return Mapper.toUserResponse(user);
+    }
 }

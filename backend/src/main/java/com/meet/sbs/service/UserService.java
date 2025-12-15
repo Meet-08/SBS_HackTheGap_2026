@@ -9,4 +9,6 @@ public interface UserService {
     UserResponse registerUser(UserRegisterDto userRegisterDto);
 
     UserResponse loginUser(UserLoginDto userLoginDto);
+
+    UserResponse getUserByEmail(String email);
 }

@@ -19,7 +19,7 @@ public class PredicationController {
 
     private final PredicationService predicationService;
 
-    @PostMapping("/predict")
+    @PostMapping
     public ResponseEntity<PredictionResponseDTO> makePrediction(
             @RequestBody PredictionRequestDto request,
             @AuthenticationPrincipal UserDetails user
