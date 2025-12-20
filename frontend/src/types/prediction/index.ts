@@ -31,4 +31,12 @@ export interface Prediction {
   model_used: string;
   weather: WeatherData;
   soil: SoilData;
+  last_four_years_yield: Record<string, number>;
+}
+
+export interface AiResponse {
+  optimalIrrigationStrategy: string;
+  soilHealthManagement: string;
+  temperatureAndClimateAdaptation: string;
+  nutrientManagementPlan: string;
 }
