@@ -8,5 +8,5 @@ public interface PredicationService {
 
     PredictionResponseDTO predict(PredictionRequestDto requestDto, String userEmail);
 
-    AiResponseDTO getAiSuggestions(PredictionResponseDTO responseDTO);
+    AiResponseDTO getAiSuggestions(PredictionRequestDto requestData, PredictionResponseDTO responseData);
 }

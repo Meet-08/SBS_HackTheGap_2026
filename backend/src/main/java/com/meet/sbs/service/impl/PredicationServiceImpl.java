@@ -76,13 +76,17 @@ public class PredicationServiceImpl implements PredicationService {
     }
 
     @Override
-    public AiResponseDTO getAiSuggestions(PredictionResponseDTO responseDTO) {
-        log.info("Ai-Suggestion: PredictionRequestDto:  {}", responseDTO);
+    public AiResponseDTO getAiSuggestions(PredictionRequestDto requestData, PredictionResponseDTO responseData) {
+        log.info("Ai-Suggestion: PredictionRequestDto:  {}", requestData);
+        log.info("Ai-Suggestion: PredictionResponseDTO:  {}", responseData);
         BeanOutputConverter<AiResponseDTO> converter = new BeanOutputConverter<>(AiResponseDTO.class);
         PromptTemplate template = new PromptTemplate(AppConfig.PROMPT);
 
         var bean = chatClient.prompt(
-                        template.create(Map.of("predictionResponse", responseDTO, "format", converter.getFormat()))
+                        template.create(Map.of(
+                                "predictionRequest", requestData,
+                                "predictionResponse", responseData,
+                                "format", converter.getFormat()))
                 )
                 .call()
                 .content();

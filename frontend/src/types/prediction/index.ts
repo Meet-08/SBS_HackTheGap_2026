@@ -40,3 +40,10 @@ export interface AiResponse {
   temperatureAndClimateAdaptation: string;
   nutrientManagementPlan: string;
 }
+
+export const TITLE_MAP: Record<keyof AiResponse, string> = {
+  optimalIrrigationStrategy: "Optimal Irrigation Strategy",
+  soilHealthManagement: "Soil Health Management",
+  temperatureAndClimateAdaptation: "Temperature & Climate Adaptation",
+  nutrientManagementPlan: "Nutrient Management Plan",
+};

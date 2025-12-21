@@ -22,7 +22,8 @@ public class AppConfig {
             
             INPUT:
             You will receive a structured input object named predictionResponse of type PredictionResponseDTO with the following content:
-            
+            predictionRequest:
+            {predictionRequest}
             predictionResponse:
             {predictionResponse}
             

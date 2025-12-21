@@ -1,4 +1,5 @@
 import { useAppSelector } from "@/app/hooks";
+import AiSuggestionCard from "@/components/aiSuggestionCard";
 import { GrowingConditionCard } from "@/components/growingConditionCard";
 import ResultCard from "@/components/resultCard";
 import ResultChart from "@/components/resultChart";
@@ -50,6 +51,10 @@ const Result = () => {
             ))}
           </CardContent>
         </Card>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <AiSuggestionCard requestData={formData} responseData={predication} />
       </div>
     </div>
   );

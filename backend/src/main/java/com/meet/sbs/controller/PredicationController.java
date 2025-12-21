@@ -1,6 +1,7 @@
 package com.meet.sbs.controller;
 
 import com.meet.sbs.dto.prediction.AiResponseDTO;
+import com.meet.sbs.dto.prediction.AiSuggestionRequestDTO;
 import com.meet.sbs.dto.prediction.PredictionRequestDto;
 import com.meet.sbs.dto.prediction.PredictionResponseDTO;
 import com.meet.sbs.service.PredicationService;
@@ -32,8 +33,8 @@ public class PredicationController {
 
     @PostMapping("/ai-suggestion")
     public ResponseEntity<AiResponseDTO> suggest(
-            @RequestBody PredictionResponseDTO responseDTO
+            @RequestBody AiSuggestionRequestDTO body
     ) {
-        return ResponseEntity.ok(predicationService.getAiSuggestions(responseDTO));
+        return ResponseEntity.ok(predicationService.getAiSuggestions(body.requestData(), body.responseData()));
     }
 }
