@@ -21,7 +21,11 @@
     "react-dom": "^19.2.0",
     "react-redux": "^9.2.0",
     "react-router": "^7.10.1",
+<<<<<<< Updated upstream
     "recharts": "^3.6.0",
+=======
+    "react-router-dom": "^7.10.1",
+>>>>>>> Stashed changes
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.17"
   },
