@@ -15,22 +15,23 @@
   text-align: center;
 }
 
-.logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: #222;
-  color: white;
+.mainlogo {
+  width: auto;
+  height: 80px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: 0 auto 16px;
-  font-size: 12px;
+  margin: 0 auto 10px;
+}
+.mainlogo img{
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  box-shadow: 1px 3px 5px;
 }
 
 .subtitle {
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: #555;
 }
 
@@ -98,4 +99,15 @@ label {
   color: #c35a2e;
   font-weight: 600;
   cursor: pointer;
+}
+.logos{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 6%;
+}
+.logos img{
+  width: 45px;
+  box-shadow: 2px 5px 8px gray;
+  border: 2px solid lightgray;
+  border-radius: 50%;
 }
