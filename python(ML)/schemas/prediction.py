@@ -1,5 +1,5 @@
 from pydantic import BaseModel, Field
-from typing import Optional
+from typing import Optional, Dict
 from enum import Enum
 
 
@@ -60,3 +60,7 @@ class PredictionResponse(BaseModel):
     weather: WeatherData
     soil: SoilData
     model_used: str = Field(..., description="ML model used for prediction")
+    last_four_years_yield: Dict[int, Optional[float]] = Field(
+        default_factory=dict,
+        description="Yield data for the last 4 years from start year (year -> yield in quintals/hectare)"
+    )

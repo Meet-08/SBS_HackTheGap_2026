@@ -1,17 +1,17 @@
-import { useNavigate } from "react-router";
 import { useState } from "react";
-import "./login.css";
-import google from "../assets/icons/google.png";
+import { useNavigate } from "react-router";
 import facebook from "../assets/icons/facebook.png";
+import google from "../assets/icons/google.png";
 import instagram from "../assets/icons/instagram.png";
+import signUp from "../assets/icons/signUp.png";
 import x from "../assets/icons/x.png";
-import signUp from "../assets/icons/signUp.png"
+import "./login.css";
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const handleLogin = () => {
     if (!email || !password) {
       alert("Email and password required");
@@ -23,22 +23,21 @@ function Login() {
       return;
     }
     // later backend auth
-    navigate("/");
     const savedUser = localStorage.getItem("user");
 
-  if (!savedUser) {
-    alert("No user registered");
-    return;
-  }
+    if (!savedUser) {
+      alert("No user registered");
+      return;
+    }
 
-  const { email: savedEmail, password: savedPassword } =
-    JSON.parse(savedUser);
+    const { email: savedEmail, password: savedPassword } =
+      JSON.parse(savedUser);
 
-  if (email !== savedEmail || password !== savedPassword) {
-    alert("Email or password is incorrect");
-    return;
-  }
-  navigate("/");
+    if (email !== savedEmail || password !== savedPassword) {
+      alert("Email or password is incorrect");
+      return;
+    }
+    navigate("/");
   };
 
   return (
@@ -52,13 +51,18 @@ function Login() {
         <p className="subtitle">Log in to access your crop insights.</p>
 
         <label>Email Address</label>
-        <input className="inputFull" placeholder="Email Address"
+        <input
+          className="inputFull"
+          placeholder="Email Address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
         <label>Password</label>
-        <input className="inputFull" type="password" placeholder="Password"
+        <input
+          className="inputFull"
+          type="password"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

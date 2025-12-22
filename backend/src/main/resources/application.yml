@@ -13,10 +13,17 @@ spring:
     username: meet
     password: 1234
     driver-class-name: org.postgresql.Driver
-
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: update
 
-
+  ai:
+    azure:
+      openai:
+        api-key: ${AZURE_OPENAI_API_KEY}
+        endpoint: ${AZURE_OPENAI_ENDPOINT}
+        chat:
+          options:
+            deployment-name: o4-mini
+            temperature: 1

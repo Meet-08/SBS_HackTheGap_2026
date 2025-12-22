@@ -1,4 +1,6 @@
+import pandas as pd
 import asyncio
+import os
 from utils.redis_cache import (
     get_cached_soil, set_cached_soil,
     get_cached_weather, set_cached_weather
@@ -6,6 +8,34 @@ from utils.redis_cache import (
 
 NASA_SEMAPHORE = asyncio.Semaphore(10)
 SOIL_SEMAPHORE = asyncio.Semaphore(20)
+
+# Cache for fallback soil data loaded from CSV
+_fallback_soil_data = None
+
+
+def _load_fallback_soil_data():
+    """Load average soil data from processed_crop_data.csv as fallback."""
+    global _fallback_soil_data
+    if _fallback_soil_data is not None:
+        return _fallback_soil_data
+
+    csv_path = os.path.join(
+        os.path.dirname(os.path.dirname(__file__)),
+        "data", "processed_crop_data.csv"
+    )
+
+    try:
+        df = pd.read_csv(csv_path)
+        _fallback_soil_data = {
+            "soil_ph": df["soil_ph"].mean() if "soil_ph" in df.columns else None,
+            "soil_oc": df["soil_oc"].mean() if "soil_oc" in df.columns else None,
+            "clay_pct": df["clay_pct"].mean() if "clay_pct" in df.columns else None,
+            "sand_pct": df["sand_pct"].mean() if "sand_pct" in df.columns else None,
+            "cec_cmol": df["cec_cmol"].mean() if "cec_cmol" in df.columns else None,
+        }
+        return _fallback_soil_data
+    except Exception:
+        return None
 
 
 async def fetch_soil_async(session, lat, lon):
@@ -26,7 +56,7 @@ async def fetch_soil_async(session, lat, lon):
     ]
 
     async with SOIL_SEMAPHORE:
-        for attempt in range(5):
+        for attempt in range(1):
             try:
                 async with session.get(url, params=params) as response:
                     if response.status == 429:
@@ -57,8 +87,17 @@ async def fetch_soil_async(session, lat, lon):
                     return result
             except Exception:
                 if attempt == 4:
+                    fallback = _load_fallback_soil_data()
+                    if fallback is not None:
+                        await set_cached_soil(lat, lon, fallback)
+                        return fallback
                     return None
                 await asyncio.sleep(1)
+    # Fallback to CSV data when all retries exhausted
+    fallback = _load_fallback_soil_data()
+    if fallback is not None:
+        await set_cached_soil(lat, lon, fallback)
+        return fallback
     return None
 
 

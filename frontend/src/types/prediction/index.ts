@@ -31,4 +31,19 @@ export interface Prediction {
   model_used: string;
   weather: WeatherData;
   soil: SoilData;
+  last_four_years_yield: Record<string, number>;
 }
+
+export interface AiResponse {
+  optimalIrrigationStrategy: string;
+  soilHealthManagement: string;
+  temperatureAndClimateAdaptation: string;
+  nutrientManagementPlan: string;
+}
+
+export const TITLE_MAP: Record<keyof AiResponse, string> = {
+  optimalIrrigationStrategy: "Optimal Irrigation Strategy",
+  soilHealthManagement: "Soil Health Management",
+  temperatureAndClimateAdaptation: "Temperature & Climate Adaptation",
+  nutrientManagementPlan: "Nutrient Management Plan",
+};
