@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { useState } from "react";
 import "./register.css";
+import signUp from "../assets/icons/signUp.png";
 
 function Register() {
   const navigate = useNavigate();
@@ -38,13 +39,24 @@ function Register() {
     }
     // later backend call
     navigate("/login");
+
+    localStorage.setItem(
+  "user",
+  JSON.stringify({
+    email,
+    password,
+  })
+);
   };
   return (
     <div className="page">
       <div className="card">
+        <img src={signUp} alt="Agri-Tech Logo" className="logo" />
+        <h3 className="logoname">Agri-Tech</h3>
         <h2>Create an Account</h2>
 
-        <div className="row">
+        <div className="form">
+          <div className="row">
           <input className="input" placeholder="First Name" />
           <input className="input" placeholder="Last Name" />
         </div>
@@ -64,15 +76,16 @@ function Register() {
           placeholder="Confirm Password"
           onChange={(e) => setConfirm(e.target.value)}
         />
+        </div>
 
         <button type="button" className="button" onClick={handleSignup}>
           Sign Up
         </button>
 
 
-
         <p className="text">
-          Already have an account? <span className="link">Log in</span>
+          Already have an account? <span onClick={()=>navigate("/login")}
+          style={{cursor:"pointer"}} className="link">Log in</span>
         </p>
       </div>
     </div>
