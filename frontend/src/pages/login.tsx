@@ -1,18 +1,21 @@
+import { useAppDispatch } from "@/app/hooks";
+import "@/css/login.css";
+import { loginUser } from "@/redux/authSlice";
 import { useState } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import facebook from "../assets/icons/facebook.png";
 import google from "../assets/icons/google.png";
 import instagram from "../assets/icons/instagram.png";
 import signUp from "../assets/icons/signUp.png";
 import x from "../assets/icons/x.png";
-import "./login.css";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!email || !password) {
       alert("Email and password required");
       return;
@@ -22,22 +25,13 @@ function Login() {
       alert("Enter valid email");
       return;
     }
-    // later backend auth
-    const savedUser = localStorage.getItem("user");
-
-    if (!savedUser) {
-      alert("No user registered");
+    try {
+      await dispatch(loginUser({ email, password })).unwrap();
+      navigate("/");
+    } catch (error) {
+      alert("Login failed. Please check your credentials and try again.");
       return;
     }
-
-    const { email: savedEmail, password: savedPassword } =
-      JSON.parse(savedUser);
-
-    if (email !== savedEmail || password !== savedPassword) {
-      alert("Email or password is incorrect");
-      return;
-    }
-    navigate("/");
   };
 
   return (
@@ -67,28 +61,34 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-              <p
-        className="forgot"
-        onClick={() => navigate("/forgetpass")}>
-        Forgot Password?
-      </p>
+        <Link className="forgot" to="/forgetpass">
+          Forgot Password?
+        </Link>
 
         <button className="button" onClick={handleLogin}>
           Login
         </button>
 
-      <div className="logos">
-        <a href="http://www.google.com"><img src={google} alt="google logo"/></a>
-        <a href="http://www.facebook.com"><img src={facebook} alt="facebook logo"/></a>
-        <a href="http://www.insatgram.com"><img src={instagram} alt="instagram logo"/></a>
-        <a href="http://www.twitter.com"><img src={x} alt="x logo"/></a>
-      </div>
+        <div className="logos">
+          <a href="http://www.google.com">
+            <img src={google} alt="google logo" />
+          </a>
+          <a href="http://www.facebook.com">
+            <img src={facebook} alt="facebook logo" />
+          </a>
+          <a href="http://www.insatgram.com">
+            <img src={instagram} alt="instagram logo" />
+          </a>
+          <a href="http://www.twitter.com">
+            <img src={x} alt="x logo" />
+          </a>
+        </div>
 
         <p className="text">
           Don't have an account?{" "}
-          <span className="link" onClick={() => navigate("/register")}>
+          <Link className="link" to="/register">
             Sign Up
-          </span>
+          </Link>
         </p>
       </div>
     </div>

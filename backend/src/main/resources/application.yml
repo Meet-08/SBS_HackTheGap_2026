@@ -3,7 +3,7 @@ spring:
     name: SBS_HackTheGap
     # noinspection SpellCheckingInspection
     secret-key: ${SECRET_KEY:sssssssssssssssssssssssssssssssssssssssssssssssssssssss}
-    frontend-urls: http://localhost:3000, http://localhost:5731
+    frontend-urls: http://localhost:3000, http://localhost:5173
     ml-service-url: http://localhost:8000
   jackson:
     mapper:
