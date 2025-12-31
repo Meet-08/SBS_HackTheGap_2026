@@ -27,3 +27,5 @@ spring:
           options:
             deployment-name: o4-mini
             temperature: 1
+server:
+  address: 0.0.0.0
