@@ -1,11 +1,11 @@
-name: Frontend
+name: ML
 
 on:
   push:
     branches:
       - main
     paths:
-      - "frontend/**"
+      - "python(ML)/**"
 
 jobs:
   build:
@@ -30,10 +30,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          context: ./frontend
+          context: ./python(ML)
           push: true
-          build-args: |
-            VITE_API_BASE_URL=${{ vars.VITE_API_BASE_URL }}
           tags: |
-            ${{ vars.DOCKERHUB_USERNAME }}/sbs_frontend:latest
-            ${{ vars.DOCKERHUB_USERNAME }}/sbs_frontend:${{ github.sha }}
+            ${{ vars.DOCKERHUB_USERNAME }}/sbs_ml:latest
+            ${{ vars.DOCKERHUB_USERNAME }}/sbs_ml:${{ github.sha }}

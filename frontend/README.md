@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# Frontend Service
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This directory contains the client-side application for the SBS HackTheGap 2026 project. It is a modern single-page application (SPA) focused on providing a seamless user experience for crop yield prediction.
 
-Currently, two official plugins are available:
+## Technology Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Core**: React 19, TypeScript
+- **Build Tool**: Vite (Rolldown)
+- **Styling**: TailwindCSS v4
+- **State Management**: Redux Toolkit (with React-Redux)
+- **Routing**: React Router v7
+- **UI Components**: Radix UI Primitives, Lucide React Icons
+- **HTTP Client**: Axios
 
-## React Compiler
+## Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The source code is organized as follows:
 
-## Expanding the ESLint configuration
+- **`src/pages/`**: Main application views.
+  - `home.tsx`: Landing page.
+  - `login.tsx` / `register.tsx`: User authentication including Google Sign-in integration.
+  - `userDashboard.tsx`: Main user hub after login.
+  - `predict.tsx`: Form for inputting crop and location data.
+  - `result.tsx`: Visualizes the prediction output (Yield, Weather, Soil data).
+- **`src/components/`**: Reusable UI components.
+- **`src/redux/`**: State slices and store configuration.
+- **`src/types/`**: TypeScript definitions for API responses and component props.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (Latest LTS recommended)
+- npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running Locally
+
+To start the high-performance Vite development server:
+
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The application will be accessible at `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Building for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+To create an optimized production build:
+
+```bash
+npm run build
 ```
+
+Artifacts will be generated in the `dist` folder.
