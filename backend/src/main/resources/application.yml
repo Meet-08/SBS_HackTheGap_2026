@@ -18,6 +18,7 @@ spring:
     hibernate:
       ddl-auto: update
 
+
   ai:
     azure:
       openai:
@@ -27,5 +28,21 @@ spring:
           options:
             deployment-name: o4-mini
             temperature: 1
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID}
+            client-secret: ${GOOGLE_CLIENT_SECRET}
+            scope:
+              - profile
+              - email
+          facebook:
+            client-id: ${FACEBOOK_CLIENT_ID}
+            client-secret: ${FACEBOOK_CLIENT_SECRET}
+            scope:
+              - email
+              - public_profile
 server:
   address: 0.0.0.0
