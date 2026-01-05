@@ -4,6 +4,8 @@ import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.JdkClientHttpRequestFactory;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestClient;
 
 import java.net.http.HttpClient;
@@ -97,5 +99,10 @@ public class AppConfig {
         return RestClient.builder()
                 .requestFactory(requestFactory)
                 .build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(12);
     }
 }

@@ -18,7 +18,6 @@ spring:
     hibernate:
       ddl-auto: update
 
-
   ai:
     azure:
       openai:
