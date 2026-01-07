@@ -70,10 +70,10 @@ function Login() {
         </button>
 
         <div className="logos">
-          <a href="http://www.google.com">
+          <a href={`${import.meta.env.VITE_OAUTH_URL}/google`}>
             <img src={google} alt="google logo" />
           </a>
-          <a href="http://www.facebook.com">
+          <a href={`${import.meta.env.VITE_OAUTH_URL}/facebook`}>
             <img src={facebook} alt="facebook logo" />
           </a>
           <a href="http://www.insatgram.com">

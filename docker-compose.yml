@@ -1,0 +1,123 @@
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx_cont
+    ports:
+      - "80:80"
+    depends_on:
+      - sbs_frontend
+    networks:
+      - sbs_nw
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+  sbs_frontend:
+    container_name: sbs_frontend
+    image: meetjbhuva/sbs_frontend:latest
+    pull_policy: always
+    build:
+      context: ./frontend
+      args:
+        - VITE_API_BASE_URL=/api/v1
+        - VITE_OAUTH_URL=/oauth2/authorization
+    ports:
+      - 5173
+    networks:
+      - sbs_nw
+    depends_on:
+      - sbs_backend
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5173/ || exit 1"]
+      interval: 10s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+
+  sbs_backend:
+    image: meetjbhuva/sbs_backend
+    pull_policy: always
+    environment:
+      - JAVA_OPTS=-Xmx512m -Xms256m
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/sbs
+      - SPRING_DATASOURCE_USERNAME=meet
+      - SPRING_DATASOURCE_PASSWORD=1234
+      - SPRING_APPLICATION_FRONTEND_URLS=http://localhost
+      - SPRING_APPLICATION_ML_SERVICE_URL=http://sbs-ml:8000
+      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
+      - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+      - SECRET_KEY=${SECRET_KEY}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+      - FACEBOOK_CLIENT_ID=${FACEBOOK_CLIENT_ID}
+      - FACEBOOK_CLIENT_SECRET=${FACEBOOK_CLIENT_SECRET}
+    ports:
+      - 8080
+    networks:
+      - sbs_nw
+    depends_on:
+      postgres:
+        condition: service_healthy
+      sbs-ml:
+        condition: service_started
+    restart: always
+
+  sbs-ml:
+    image: meetjbhuva/sbs_ml
+    pull_policy: always
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_DB=0
+      - SOIL_CACHE_TTL=2592000
+      - WEATHER_CACHE_TTL=86400
+      - HISTORICAL_WEATHER_CACHE_TTL=604800
+    ports:
+      - 8000
+    networks:
+      - sbs_nw
+    depends_on:
+      redis:
+        condition: service_healthy
+    restart: always
+
+  postgres:
+    image: "postgres:latest"
+    environment:
+      - "POSTGRES_DB=sbs"
+      - "POSTGRES_PASSWORD=1234"
+      - "POSTGRES_USER=meet"
+    volumes:
+      - pg_data:/var/lib/postgresql
+    ports:
+      - 5432
+    networks:
+      - sbs_nw
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U meet -d sbs"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - 6379
+    networks:
+      - sbs_nw
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pg_data:
+  redis_data:
+
+networks:
+  sbs_nw:

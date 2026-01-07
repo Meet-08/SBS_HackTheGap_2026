@@ -1,0 +1,18 @@
+# Exclude development files and notebooks
+__pycache__/
+*.ipynb
+.dockerignore
+.gitignore
+.env
+.git/
+
+# Exclude large raw data files and directories
+data/gadm/
+data/xls_files/
+data/converted_crop_data.csv
+data/enriched_crop_data_v0.csv
+data/enriched_crop_data_v1.csv
+
+# Exclude source code that is not needed for prediction
+sbs/
+rf_models/

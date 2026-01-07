@@ -1,14 +1,12 @@
 rapidfuzz
 numpy
 pandas
-matplotlib
+# matplotlib removed - unused in production
 scikit-learn
 tqdm
-jupyterlab
+# jupyterlab
 xgboost
-fiona
-shapely
-lxml
+# fiona, shapely, lxml removed - unused in production
 fastapi
 uvicorn
 aiohttp

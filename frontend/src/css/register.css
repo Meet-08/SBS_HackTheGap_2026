@@ -15,15 +15,15 @@
   text-align: center;
   border: 1px solid #f2dbae;
 }
-.logoname{
+.logoname {
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom:5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 5px;
   margin-top: -3%;
   font-weight: bold;
   color: #2b2b2b;
 }
-.form{
+.form {
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -88,7 +88,7 @@
   cursor: pointer;
 }
 .logo {
-  margin: 0 auto 12px;  
+  margin: 0 auto 12px;
   width: 80px;
   height: 80px;
   background: none;

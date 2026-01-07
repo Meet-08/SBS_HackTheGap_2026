@@ -1,20 +1,22 @@
 package com.meet.sbs;
 
-import com.meet.sbs.models.Location;
-import com.meet.sbs.repository.LocationRepository;
-import lombok.RequiredArgsConstructor;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.List;
+import com.meet.sbs.models.Location;
+import com.meet.sbs.repository.LocationRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/data")
+@RequestMapping("api/data")
 @RequiredArgsConstructor
 public class DataLoader {
 
