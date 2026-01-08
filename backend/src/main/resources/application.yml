@@ -14,7 +14,6 @@ spring:
     password: 1234
     driver-class-name: org.postgresql.Driver
   jpa:
-    show-sql: true
     hibernate:
       ddl-auto: update
 
