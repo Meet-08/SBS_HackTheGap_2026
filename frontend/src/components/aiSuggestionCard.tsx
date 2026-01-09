@@ -32,7 +32,7 @@ const AiSuggestionCard = ({ requestData, responseData }: props) => {
       setIsLoading(true);
 
       try {
-        const res = await axiosInstance.post("v1/predict/ai-suggestion", {
+        const res = await axiosInstance.post("predict/ai-suggestion", {
           requestData,
           responseData,
         });
@@ -77,6 +77,8 @@ const AiSuggestionCard = ({ requestData, responseData }: props) => {
         loading...
       </div>
     );
+
+  console.log({ aiSuggestions });
   return (
     <Activity mode={isLoading ? "hidden" : "visible"}>
       <Card className="border-border">

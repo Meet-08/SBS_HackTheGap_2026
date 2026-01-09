@@ -178,8 +178,30 @@ async def fetch_weather_async(session, lat, lon, year, season):
 
     year = int(year)
     current_year = datetime.now().year
+    current_date = datetime.now()
 
-    if year > current_year:
+    # Determine the end date of the season to check if it's in the future
+    s = season.lower()
+    if s == "kharif":
+        season_end_month, season_end_day = 9, 30  # September 30
+    elif s == "rabi":
+        season_end_month, season_end_day = 3, 31  # March 31 of next year
+        # For Rabi, the end date is in year+1
+        season_end_year = year + 1
+    elif s == "whole year":
+        season_end_month, season_end_day = 12, 31  # December 31
+    else:
+        return None
+
+    # Check if the season end date is in the future
+    if s == "rabi":
+        season_end_date = datetime(year + 1, season_end_month, season_end_day)
+    else:
+        season_end_date = datetime(year, season_end_month, season_end_day)
+
+    is_future_season = season_end_date > current_date
+
+    if year > current_year or is_future_season:
         cached = await get_cached_weather(lat, lon, year, season)
         if cached is not None:
             return cached

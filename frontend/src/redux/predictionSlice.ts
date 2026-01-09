@@ -7,6 +7,7 @@ const predict = createAsyncThunk(
   async (requestData: PredictionRequest, { rejectWithValue }) => {
     try {
       const res = await axiosInstance.post("/predict", requestData);
+      console.log("Prediction response:", res.data);
       return res.data as Prediction;
     } catch (err) {
       return rejectWithValue("Prediction failed");

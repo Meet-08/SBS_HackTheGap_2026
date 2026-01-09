@@ -10,7 +10,7 @@ import { Leaf } from "lucide-react";
 import { Navigate, useLocation } from "react-router";
 
 const Result = () => {
-  const formData: PredictionRequest = useLocation().state;
+  const formData: PredictionRequest = useLocation().state.formData;
   const { predication, error, loading } = useAppSelector(
     (state) => state.predictionReducer
   );
@@ -21,8 +21,9 @@ const Result = () => {
   if (!formData || predication == null) return <Navigate to="/predict" />;
 
   const growingConditions = buildGrowingConditions(predication);
+  console.log({ predication, formData });
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 m-6">
       <ResultCard
         state={formData.state}
         district={formData.district}
@@ -53,9 +54,7 @@ const Result = () => {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <AiSuggestionCard requestData={formData} responseData={predication} />
-      </div>
+      <AiSuggestionCard requestData={formData} responseData={predication} />
     </div>
   );
 };

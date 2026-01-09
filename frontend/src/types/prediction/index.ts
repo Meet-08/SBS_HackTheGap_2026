@@ -3,8 +3,6 @@ export type Season = "KHARIF" | "RABI" | "WHOLE_YEAR";
 export interface PredictionRequest {
   state: string;
   district: string;
-  latitude: number;
-  longitude: number;
   season: Season;
   year: number;
   crop: string;
