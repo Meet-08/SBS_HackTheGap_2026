@@ -2,3 +2,6 @@
 .env
 
 certs/
+__pycache__/
+*.pyc
+python(ML)/sbs/
