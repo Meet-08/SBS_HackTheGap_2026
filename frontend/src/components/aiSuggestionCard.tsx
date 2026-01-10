@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Loader } from "@/components/ui/loader";
 import axiosInstance from "@/lib/axios";
 import { formatAllResponses } from "@/lib/utils";
 import type { AiResponse, Prediction, PredictionRequest } from "@/types";
@@ -74,7 +75,7 @@ const AiSuggestionCard = ({ requestData, responseData }: props) => {
   if (isLoading)
     return (
       <div className="h-48 w-full flex items-center justify-center">
-        loading...
+        <Loader size="lg" text="Generating AI recommendations..." />
       </div>
     );
 

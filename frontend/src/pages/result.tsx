@@ -4,6 +4,7 @@ import { GrowingConditionCard } from "@/components/growingConditionCard";
 import ResultCard from "@/components/resultCard";
 import ResultChart from "@/components/resultChart";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Loader } from "@/components/ui/loader";
 import { buildGrowingConditions } from "@/lib/growing-conditions";
 import type { PredictionRequest } from "@/types";
 import { Leaf } from "lucide-react";
@@ -16,7 +17,12 @@ const Result = () => {
   );
   const lastYear = new Date().getFullYear() - 1;
 
-  if (loading) return <div className="h-screen w-screen">Loading...</div>;
+  if (loading)
+    return (
+      <div className="h-screen w-screen flex items-center justify-center">
+        <Loader size="xl" text="Analyzing your crop data..." />
+      </div>
+    );
   if (error) return <div>Error: {error}</div>;
   if (!formData || predication == null) return <Navigate to="/predict" />;
 

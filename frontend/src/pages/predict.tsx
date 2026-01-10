@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { SelectInput } from "@/components/selectInput";
+import { Loader } from "@/components/ui/loader";
 import { crops, locationData } from "@/lib/constants";
 import { predict } from "@/redux/predictionSlice";
 import type { Season } from "@/types";
@@ -26,10 +27,10 @@ const Prediction = () => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      dispatch(predict(formData)).unwrap();
+      await dispatch(predict(formData)).unwrap();
       navigate("/predict-result", { state: { formData } });
     } catch (err) {
       alert("An error occurred while submitting the form.");
@@ -131,7 +132,7 @@ const Prediction = () => {
                       })
                     }
                     className={`py-3 px-4 rounded-lg border bg-white flex flex-col items-center gap-1 transition-all ${
-                      formData.season === s
+                      formData.season === s.toUpperCase()
                         ? "border-[#D9A282] ring-2 ring-[#D9A282]"
                         : "border-gray-200"
                     }`}
@@ -193,9 +194,16 @@ const Prediction = () => {
           <button
             disabled={loading}
             type="submit"
-            className="bg-[#C2592A] hover:bg-[#A14822] text-white font-bold py-3 px-8 rounded-lg transition-colors"
+            className="bg-[#C2592A] hover:bg-[#A14822] text-white font-bold py-3 px-8 rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           >
-            {loading ? "Predicting..." : "Get Prediction"}
+            {loading ? (
+              <>
+                <Loader size="sm" className="flex-row" />
+                <span>Predicting...</span>
+              </>
+            ) : (
+              "Get Prediction"
+            )}
           </button>
 
           <p className="text-sm text-gray-500 italic">
