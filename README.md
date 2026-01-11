@@ -161,13 +161,13 @@ Detailed documentation for each service:
 
 The platform supports **30+ crops** categorized by yield range:
 
-| Category            | Crops                                | Model            |
-| ------------------- | ------------------------------------ | ---------------- |
-| **Ultra Low**       | Sesamum, Moth                        | Model_1_UltraLow |
-| **Low**             | Pulses (Gram, Urad, Moong), Oilseeds | Model_2_Low      |
-| **Medium**          | Rice, Wheat, Maize, Cotton, Bajra    | Model_3_Medium   |
-| **High Vegetables** | Potato, Onion, Garlic                | Model_4_HighVeg  |
-| **Ultra High**      | Sugarcane, Banana                    |
+| Category            | Crops                                | Model             |
+| ------------------- | ------------------------------------ | ----------------- |
+| **Ultra Low**       | Sesamum, Moth                        | Model_1_UltraLow  |
+| **Low**             | Pulses (Gram, Urad, Moong), Oilseeds | Model_2_Low       |
+| **Medium**          | Rice, Wheat, Maize, Cotton, Bajra    | Model_3_Medium    |
+| **High Vegetables** | Potato, Onion, Garlic                | Model_4_HighVeg   |
+| **Ultra High**      | Sugarcane, Banana                    | Model_5_UltraHigh |
 
 ---
 
