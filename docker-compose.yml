@@ -14,11 +14,6 @@ services:
     container_name: sbs_frontend
     image: meetjbhuva/sbs_frontend:latest
     pull_policy: always
-    build:
-      context: ./frontend
-      args:
-        - VITE_API_BASE_URL=/api/v1
-        - VITE_OAUTH_URL=/oauth2/authorization
     ports:
       - 5173
     networks:
