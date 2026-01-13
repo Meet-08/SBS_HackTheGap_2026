@@ -21,4 +21,9 @@ Thumbs.db
 *.pem
 *.key
 certs/
+
+#For Ansible environment
 ansible/inventory.ini
+ansible/dev/control.Dockerfile
+ansible/dev/docker-compose.yml
+ansible/dev/target.Dockerfile

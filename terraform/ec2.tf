@@ -28,6 +28,12 @@ module "sbs_ec2" {
       description = "Allow SSH from internal VPC"
       from_port   = 22
       to_port     = 22
+    },
+    "allow_http_internal" = {
+      cidr_ipv4   = "0.0.0.0/0"
+      description = "Allow HTTP from internal VPC"
+      from_port   = 80
+      to_port     = 80
     }
   }
 
