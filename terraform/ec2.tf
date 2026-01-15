@@ -13,14 +13,14 @@ module "sbs_ec2" {
 
   ami                   = "ami-02b8269d5e85954ef"
   count                 = 1
-  instance_type         = "t3.micro"
+  instance_type         = "t3.small"
   key_name              = aws_key_pair.sbs_key.key_name
   subnet_id             = aws_default_subnet.default_az1.id
   create_security_group = true
   root_block_device = {
-    encrypted = true
     type      = "gp3"
-    size      = 20
+    size      = 25
+    delete_on_termination = true
   }
   security_group_ingress_rules = {
     "allow_ssh_internal" = {

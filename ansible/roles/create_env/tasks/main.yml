@@ -1,0 +1,15 @@
+---
+- name: Create .env file from secrets
+  copy:
+    dest: "{{ project_path }}/.env"
+    content: |
+      DB_USERNAME={{ DB_USERNAME }}
+      DB_PASSWORD={{ DB_PASSWORD }}
+      AZURE_OPENAI_API_KEY={{ AZURE_OPENAI_API_KEY }}
+      AZURE_OPENAI_ENDPOINT={{ AZURE_OPENAI_ENDPOINT }}
+      SECRET_KEY={{ SECRET_KEY }}
+      GOOGLE_CLIENT_ID={{ GOOGLE_CLIENT_ID }}
+      GOOGLE_CLIENT_SECRET={{ GOOGLE_CLIENT_SECRET }}
+      FACEBOOK_CLIENT_ID={{ FACEBOOK_CLIENT_ID }}
+      FACEBOOK_CLIENT_SECRET={{ FACEBOOK_CLIENT_SECRET }}
+    mode: "0600"

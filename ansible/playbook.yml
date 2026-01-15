@@ -1,0 +1,37 @@
+---
+- name: Deploy SBS Hackathon demo
+  become: true
+  hosts: servers
+  vars:
+    project_path: "/home/ubuntu/SBS_HackTheGap_2026"
+    AZURE_OPENAI_API_KEY: "{{ lookup('env', 'AZURE_OPENAI_API_KEY') }}"
+    AZURE_OPENAI_ENDPOINT: "{{ lookup('env', 'AZURE_OPENAI_ENDPOINT') }}"
+    SECRET_KEY: "{{ lookup('env', 'SECRET_KEY') }}"
+    GOOGLE_CLIENT_ID: "{{ lookup('env', 'GOOGLE_CLIENT_ID') }}"
+    GOOGLE_CLIENT_SECRET: "{{ lookup('env', 'GOOGLE_CLIENT_SECRET') }}"
+    FACEBOOK_CLIENT_ID: "{{ lookup('env', 'FACEBOOK_CLIENT_ID') }}"
+    FACEBOOK_CLIENT_SECRET: "{{ lookup('env', 'FACEBOOK_CLIENT_SECRET') }}"
+
+  pre_tasks:
+    - name: Ensure project directory exists
+      ansible.builtin.file:
+        path: "{{ project_path }}"
+        state: directory
+
+  roles:
+    - docker_install
+    - create_env
+
+  tasks:
+    - name: Copy docker-compose and nginx config
+      copy:
+        src: "../{{ item }}"
+        dest: "{{ project_path }}/{{ item }}"
+      loop:
+        - docker-compose.yml
+        - nginx.conf
+
+    - name: Deploy application
+      community.docker.docker_compose_v2:
+        project_src: "{{ project_path }}"
+        state: present
