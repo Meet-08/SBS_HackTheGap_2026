@@ -1,31 +1,35 @@
 package com.meet.sbs;
 
+import com.meet.sbs.enums.Role;
+import com.meet.sbs.models.Location;
+import com.meet.sbs.models.User;
+import com.meet.sbs.repository.LocationRepository;
+import com.meet.sbs.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-import com.meet.sbs.models.Location;
-import com.meet.sbs.repository.LocationRepository;
-
-import lombok.RequiredArgsConstructor;
-
-@RestController
-@RequestMapping("api/data")
+@Component
 @RequiredArgsConstructor
 public class DataLoader {
 
     private final Logger log = LoggerFactory.getLogger(DataLoader.class);
     private final LocationRepository locationRepository;
+    private final UserRepository userRepository;
 
-    @GetMapping("/load-centroid")
-    public String loadCentroidData() {
+    public void loadCentroidData() {
         try (var resource = getClass().getResourceAsStream("/centroid.csv")) {
+            assert resource != null;
+
+            if (locationRepository.count() != 0L)
+                return;
+
             List<Location> locations = new BufferedReader(new InputStreamReader(resource))
                     .lines()
                     .skip(1)
@@ -51,9 +55,23 @@ public class DataLoader {
             });
         } catch (Exception e) {
             log.error("Error loading centroid data", e);
-            return "Failed to load centroid data";
         }
-        return "Centroid data loaded";
     }
 
+    public void addAdminUserIfNotExists() {
+        String adminEmail = "testadmin@gmail.com";
+        if (userRepository.existsByEmail(adminEmail)) {
+            log.debug("Admin user already exists: {}", adminEmail);
+            return;
+        }
+        var adminUser = User.builder()
+                .firstName("Test")
+                .lastName("Admin")
+                .password("Test@1234")
+                .email(adminEmail)
+                .role(Role.ADMIN)
+                .build();
+        userRepository.save(adminUser);
+        log.debug("Admin user created: {}", adminEmail);
+    }
 }

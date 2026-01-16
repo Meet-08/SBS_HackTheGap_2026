@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "@/app/hooks";
-import { SelectInput } from "@/components/selectInput";
+import { SelectInput } from "@/components/select-input";
 import { Loader } from "@/components/ui/loader";
 import { crops, locationData } from "@/lib/constants";
 import { predict } from "@/redux/predictionSlice";

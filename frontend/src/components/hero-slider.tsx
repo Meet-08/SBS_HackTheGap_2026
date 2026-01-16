@@ -1,8 +1,8 @@
+import heroImage1 from "@/assets/images/1.png";
+import heroImage2 from "@/assets/images/2.png";
+import heroImage3 from "@/assets/images/3.png";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useCallback, useEffect, useState } from "react";
-import heroImage1 from "../assets/icons/1.png";
-import heroImage2 from "../assets/icons/2.png";
-import heroImage3 from "../assets/icons/3.png";
 
 const HeroSlider = () => {
   const images = [heroImage1, heroImage2, heroImage3];

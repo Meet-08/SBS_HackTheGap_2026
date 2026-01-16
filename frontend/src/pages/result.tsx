@@ -1,8 +1,8 @@
 import { useAppSelector } from "@/app/hooks";
-import AiSuggestionCard from "@/components/aiSuggestionCard";
-import { GrowingConditionCard } from "@/components/growingConditionCard";
-import ResultCard from "@/components/resultCard";
-import ResultChart from "@/components/resultChart";
+import AiSuggestionCard from "@/components/ai-suggestion-card";
+import { GrowingConditionCard } from "@/components/growing-condition-card";
+import ResultCard from "@/components/result-card";
+import ResultChart from "@/components/result-chart";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Loader } from "@/components/ui/loader";
 import { buildGrowingConditions } from "@/lib/growing-conditions";

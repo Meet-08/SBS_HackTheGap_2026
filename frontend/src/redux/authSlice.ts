@@ -40,6 +40,15 @@ const getCurrentUser = createAsyncThunk(
     }
   }
 );
+
+const logout = createAsyncThunk("auth/logout", async () => {
+  try {
+    await axiosInstance.get("/auth/logout");
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -82,15 +91,32 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(getCurrentUser.fulfilled, (state, action) => {
+        console.log("getCurrentUser fulfilled", action.payload);
         state.loading = false;
         state.user = action.payload;
       })
       .addCase(getCurrentUser.rejected, (state, action) => {
+        console.log("getCurrentUser rejected", action.payload);
+        state.user = null;
+        state.loading = false;
+        state.error = action.payload as string;
+      })
+      // Logout cases
+      .addCase(logout.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.loading = false;
+        state.user = null;
+        state.error = null;
+      })
+      .addCase(logout.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
       });
   },
 });
 
-export { getCurrentUser, loginUser, registerUser };
+export { getCurrentUser, loginUser, logout, registerUser };
 export default authSlice.reducer;

@@ -1,3 +1,5 @@
+import { CloudSun, Database, Leaf } from "lucide-react";
+
 export const crops = [
   "Wheat",
   "Rice",
@@ -724,3 +726,42 @@ export const locationData: Record<string, string[]> = {
     "Uttar Dinajpur",
   ],
 };
+
+export const dataSources = [
+  {
+    icon: CloudSun,
+    name: "NASA POWER API",
+    description:
+      "Global weather data including temperature, rainfall, humidity, and solar radiation for any location.",
+    features: [
+      "Temperature Data",
+      "Rainfall Patterns",
+      "Humidity Levels",
+      "Solar Radiation",
+    ],
+  },
+  {
+    icon: Leaf,
+    name: "SoilGrids API",
+    description:
+      "Comprehensive soil analysis data including pH levels, organic carbon, and soil composition.",
+    features: [
+      "Soil pH Levels",
+      "Organic Carbon",
+      "Clay & Sand %",
+      "CEC Values",
+    ],
+  },
+  {
+    icon: Database,
+    name: "desagri.gov.in",
+    description:
+      "Historical district-wise yield data from the Indian government agricultural database.",
+    features: [
+      "Yield History",
+      "District Data",
+      "Seasonal Records",
+      "Crop Statistics",
+    ],
+  },
+];

@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserResponse registerUser(UserRegisterDto userRegisterDto) {
-        log.info("Registering user with email: {}", userRegisterDto.email());
         var user = userRegisterDto.toEntity();
         if (userRepository.existsByEmail(user.getEmail())) {
             log.warn("User with email {} already exists", user.getEmail());
@@ -37,20 +36,19 @@ public class UserServiceImpl implements UserService {
         user.setRole(Role.USER);
 
         var savedUser = userRepository.save(user);
-        log.info("User with email {} registered successfully", savedUser.getEmail());
         return Mapper.toUserResponse(savedUser);
     }
 
     @Override
     public UserResponse loginUser(UserLoginDto userLoginDto) {
-        log.info("Logging in user with email: {}", userLoginDto.email());
         var user = userRepository.findByEmail(userLoginDto.email())
                 .orElseThrow(() -> new UserException("User with email not found", HttpStatus.NOT_FOUND));
 
-        if (!passwordEncoder.matches(userLoginDto.password(), user.getPassword()))
+        if (!passwordEncoder.matches(userLoginDto.password(), user.getPassword())) {
+            log.warn("Invalid password for user with email {}", userLoginDto.email());
             throw new UserException("Invalid password", HttpStatus.UNAUTHORIZED);
+        }
 
-        log.info("User with email {} logged in successfully", user.getEmail());
         return Mapper.toUserResponse(user);
     }
 
