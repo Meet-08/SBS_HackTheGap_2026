@@ -1,0 +1,16 @@
+plugin: aws_ec2
+regions:
+  - ap-south-1
+
+keyed_groups:
+  - key: tags.Name
+    prefix: Name
+
+filters:
+  tag:Name: SBS_HackTheGap_2026
+
+hostnames:
+  - public-ip-address
+
+compose:
+  ansible_host: public_ip_address

@@ -1,9 +1,9 @@
 ---
 - name: Deploy SBS Hackathon demo
   become: true
-  hosts: servers
+  hosts: Name_SBS_HackTheGap_2026
   vars:
-    project_path: "/home/ubuntu/SBS_HackTheGap_2026"
+    project_path: "{{ ansible_env.HOME }}/SBS_HackTheGap_2026"
     AZURE_OPENAI_API_KEY: "{{ lookup('env', 'AZURE_OPENAI_API_KEY') }}"
     AZURE_OPENAI_ENDPOINT: "{{ lookup('env', 'AZURE_OPENAI_ENDPOINT') }}"
     SECRET_KEY: "{{ lookup('env', 'SECRET_KEY') }}"
@@ -35,3 +35,5 @@
       community.docker.docker_compose_v2:
         project_src: "{{ project_path }}"
         state: present
+        pull: always
+        recreate: auto

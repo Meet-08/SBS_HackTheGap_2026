@@ -35,19 +35,16 @@ module "sbs_ec2" {
       from_port   = 80
       to_port     = 80
     }
+    "allow_https_internal" = {
+      cidr_ipv4   = "0.0.0.0/0"
+      description = "Allow HTTPS from internal VPC"
+      from_port   = 443
+      to_port     = 443
+    }
   }
 
 
   instance_tags = {
     Name = "SBS_HackTheGap_2026"
   }
-}
-
-resource "local_file" "ansible_inventory" {
-  content = templatefile("${path.module}/inventory.tftpl",
-    {
-      server_ips = module.sbs_ec2[*].public_ip
-    }
-  )
-  filename = "${path.module}/../ansible/inventory.ini"
 }
