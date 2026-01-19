@@ -25,6 +25,8 @@ public class Prediction {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    private String crop;
+
     @Column(name = "predicted_yield_qha")
     private Double predictedYieldQha;
 
@@ -34,7 +36,7 @@ public class Prediction {
     @Column(name = "prediction_date")
     @Builder.Default
     private LocalDateTime predictionDate = LocalDateTime.now();
-    
+
     @Embedded
     private WeatherInfo weather;
 

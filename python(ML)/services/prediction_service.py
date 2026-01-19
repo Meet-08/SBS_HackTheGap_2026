@@ -181,6 +181,7 @@ class PredictionService:
 
         # Step 7: Build response
         return PredictionResponse(
+            crop=request.crop,
             predicted_yield_qha=round(predicted_yield, 2),
             weather=weather_data,
             soil=soil_data,

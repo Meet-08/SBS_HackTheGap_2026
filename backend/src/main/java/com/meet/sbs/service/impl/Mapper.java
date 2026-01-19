@@ -21,6 +21,7 @@ public class Mapper {
     public static Prediction mapToPredictionEntity(PredictionResponseDTO dto, User user) {
         return Prediction.builder()
                 .user(user)
+                .crop(dto.crop())
                 .predictedYieldQha(dto.predictedYieldQha())
                 .modelUsed(dto.modelUsed())
                 .weather(WeatherInfo.builder()

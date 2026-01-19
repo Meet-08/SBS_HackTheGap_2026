@@ -8,6 +8,8 @@ public record PredictionResponseDTO(
         @JsonProperty("predicted_yield_qha")
         Double predictedYieldQha,
 
+        String crop,
+
         @JsonProperty("model_used")
         String modelUsed,
 

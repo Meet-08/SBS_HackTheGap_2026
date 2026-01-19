@@ -54,6 +54,7 @@ class PredictionRequest(BaseModel):
 class PredictionResponse(BaseModel):
     """Response schema for yield prediction."""
 
+    crop: str = Field(..., description="Crop name")
     predicted_yield_qha: float = Field(
         ..., description="Predicted yield in quintals per hectare"
     )
