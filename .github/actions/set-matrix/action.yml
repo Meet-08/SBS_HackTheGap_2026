@@ -1,0 +1,49 @@
+name: Set Matrix
+description: Build a dynamic matrix of changed services with explicit image names
+
+inputs:
+  services:
+    description: "Service definitions in the form dir=image (one per line)"
+    required: true
+
+outputs:
+  matrix:
+    description: "Matrix JSON for downstream jobs"
+    value: ${{ steps.set-matrix.outputs.matrix }}
+  has-changes:
+    description: "Whether any services changed"
+    value: ${{ steps.set-matrix.outputs.has-changes }}
+
+runs:
+  using: composite
+  steps:
+    - id: set-matrix
+      shell: bash
+      run: |
+        set -euo pipefail
+
+        echo "🔍 Detecting changed services..."
+
+        mapfile -t SERVICES <<< "${{ inputs.services }}"
+        CHANGED=()
+
+        git diff --name-only HEAD~1 HEAD > /tmp/changed_files.txt
+
+        for entry in "${SERVICES[@]}"; do
+          DIR="${entry%%=*}"
+          IMAGE="${entry##*=}"
+
+          if grep -q "^${DIR}/" /tmp/changed_files.txt; then
+            echo "✅ ${DIR} changed"
+            CHANGED+=("{\"dir\":\"${DIR}\",\"image\":\"${IMAGE}\"}")
+          fi
+        done
+
+        if [ "${#CHANGED[@]}" -eq 0 ]; then
+          echo 'has-changes=false' >> "$GITHUB_OUTPUT"
+          echo 'matrix={"service":[]}' >> "$GITHUB_OUTPUT"
+        else
+          MATRIX=$(printf '%s\n' "${CHANGED[@]}" | jq -s -c .)
+          echo 'has-changes=true' >> "$GITHUB_OUTPUT"
+          echo "matrix={\"service\":${MATRIX}}" >> "$GITHUB_OUTPUT"
+        fi

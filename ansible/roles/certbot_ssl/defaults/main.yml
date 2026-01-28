@@ -1,0 +1,13 @@
+---
+# Defaults for certbot_ssl role
+
+# Email address for registration and recovery contact.
+certbot_admin_email: meetjbhuva@gmail.com
+
+# List of domains to create the certificate for.
+certbot_domains:
+  - meet-08.me
+  - www.meet-08.me
+
+# Whether to create the certificate if it's missing.
+certbot_create_if_missing: true

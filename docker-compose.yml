@@ -4,12 +4,15 @@ services:
     container_name: nginx_cont
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - sbs_frontend
     networks:
       - sbs_nw
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - /var/lib/letsencrypt:/var/lib/letsencrypt:ro
   sbs_frontend:
     container_name: sbs_frontend
     image: meetjbhuva/sbs_frontend:latest

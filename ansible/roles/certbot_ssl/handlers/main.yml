@@ -1,0 +1,6 @@
+---
+- name: Reload Docker
+  ansible.builtin.command:
+    cmd: docker compose restart nginx
+  args:
+    chdir: "{{ project_path }}"

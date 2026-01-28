@@ -1,0 +1,64 @@
+name: Deploy using Ansible
+description: Deploy services using Ansible
+
+inputs:
+  ssh-key-name:
+    required: true
+    description: SSH key name
+  ssh-private-key:
+    required: true
+    description: SSH private key in base64 format
+  role-arn:
+    required: true
+    description: IAM role to assume
+  aws-region:
+    description: AWS region
+    default: ap-south-1
+  env-vars:
+    required: true
+    description: Multiline env vars (KEY=VALUE)
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v4
+
+    - name: Install Ansible and AWS deps
+      shell: bash
+      run: |
+        pip install --upgrade pip
+        pip install --user ansible boto3 botocore
+
+    - name: Configure AWS credentials
+      uses: ./.github/actions/aws-auth
+      with:
+        role-arn: ${{ inputs.role-arn }}
+        aws-region: ${{ inputs.aws-region }}
+
+    - name: Write SSH key
+      shell: bash
+      env:
+        SSH_KEY_B64: ${{ inputs.ssh-private-key }}
+      run: |
+        mkdir -p ~/.ssh
+        echo "$SSH_KEY_B64" | base64 --decode > ~/.ssh/${{ inputs.ssh-key-name }}
+        chmod 600 ~/.ssh/${{ inputs.ssh-key-name }}
+
+    - name: Start ssh-agent
+      shell: bash
+      run: |
+        ssh-add ~/.ssh/${{ inputs.ssh-key-name }}
+
+    - name: Export environment variables
+      shell: bash
+      run: |
+        while IFS= read -r line; do
+          [ -z "$line" ] && continue
+          export "$line"
+        done <<< "${{ inputs.env-vars }}"
+
+    - name: Run Ansible playbook
+      shell: bash
+      working-directory: ./ansible
+      run: |
+        ansible-playbook -i inventory/aws_ec2.yml playbook.yml

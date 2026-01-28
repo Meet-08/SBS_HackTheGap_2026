@@ -21,15 +21,13 @@
   roles:
     - docker_install
     - create_env
+    - certbot_ssl
 
   tasks:
-    - name: Copy docker-compose and nginx config
+    - name: Copy docker-compose
       copy:
-        src: "../{{ item }}"
-        dest: "{{ project_path }}/{{ item }}"
-      loop:
-        - docker-compose.yml
-        - nginx.conf
+        src: "../docker-compose.yml"
+        dest: "{{ project_path }}/docker-compose.yml"
 
     - name: Deploy application
       community.docker.docker_compose_v2:

@@ -1,0 +1,36 @@
+---
+# Tasks for certbot_ssl role
+- name: Install Certbot and Nginx plugin
+  ansible.builtin.apt:
+    name:
+      - certbot
+      - python3-certbot-nginx
+    state: present
+    update_cache: true
+
+- name: Stop interfering services on port 80
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: stopped
+  loop:
+    - nginx
+    - apache2
+  ignore_errors: true
+  failed_when: false
+
+- name: Generate SSL certificate
+  ansible.builtin.command:
+    cmd: >
+      certbot certonly
+      --standalone
+      --non-interactive
+      --agree-tos
+      -m {{ certbot_admin_email }}
+      -d {{ certbot_domains | join(',') }}
+
+- name: Deploy dynamic Nginx configuration
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: "{{ project_path }}/nginx.conf"
+    mode: "0644"
+  notify: Reload Docker
