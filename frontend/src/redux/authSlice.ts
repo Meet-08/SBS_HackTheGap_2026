@@ -6,7 +6,7 @@ const loginUser = createAsyncThunk(
   "auth/loginUser",
   async (
     credentials: { email: string; password: string },
-    { rejectWithValue }
+    { rejectWithValue },
   ) => {
     try {
       const res = await axiosInstance.post("/auth/login", credentials);
@@ -14,7 +14,7 @@ const loginUser = createAsyncThunk(
     } catch (err) {
       return rejectWithValue("Login failed");
     }
-  }
+  },
 );
 
 const registerUser = createAsyncThunk(
@@ -26,7 +26,7 @@ const registerUser = createAsyncThunk(
     } catch (err) {
       return rejectWithValue("Registration failed");
     }
-  }
+  },
 );
 
 const getCurrentUser = createAsyncThunk(
@@ -38,7 +38,7 @@ const getCurrentUser = createAsyncThunk(
     } catch (err) {
       return rejectWithValue("Fetching user failed");
     }
-  }
+  },
 );
 
 const logout = createAsyncThunk("auth/logout", async () => {
@@ -91,12 +91,10 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(getCurrentUser.fulfilled, (state, action) => {
-        console.log("getCurrentUser fulfilled", action.payload);
         state.loading = false;
         state.user = action.payload;
       })
       .addCase(getCurrentUser.rejected, (state, action) => {
-        console.log("getCurrentUser rejected", action.payload);
         state.user = null;
         state.loading = false;
         state.error = action.payload as string;

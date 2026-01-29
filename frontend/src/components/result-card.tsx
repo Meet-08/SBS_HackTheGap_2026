@@ -21,8 +21,13 @@ const ResultCard = ({
   prediction,
 }: props) => {
   const yearOverYearComparison =
-    ((prediction - lastYearYield) / lastYearYield) * 100;
+    lastYearYield > 0 ?
+      ((prediction - lastYearYield) / lastYearYield) * 100
+    : 0;
   const totalProduction = area * prediction;
+
+  console.log({ prediction, lastYearYield });
+  console.log({ yearOverYearComparison, totalProduction, area, prediction });
 
   return (
     <Card>

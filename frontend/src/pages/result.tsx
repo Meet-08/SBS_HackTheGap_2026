@@ -13,9 +13,8 @@ import { Navigate, useLocation } from "react-router";
 const Result = () => {
   const formData: PredictionRequest = useLocation().state.formData;
   const { predication, error, loading } = useAppSelector(
-    (state) => state.predictionReducer
+    (state) => state.predictionReducer,
   );
-  const lastYear = new Date().getFullYear() - 1;
 
   if (loading)
     return (
@@ -27,6 +26,10 @@ const Result = () => {
   if (!formData || predication == null) return <Navigate to="/predict" />;
 
   const growingConditions = buildGrowingConditions(predication);
+  const lastYearYield =
+    predication.last_four_years_yield ?
+      Object.values(predication.last_four_years_yield).pop() || 0
+    : 0;
   console.log({ predication, formData });
   return (
     <div className="space-y-6 m-6">
@@ -35,7 +38,7 @@ const Result = () => {
         district={formData.district}
         area={formData.area_ha}
         crop={formData.crop}
-        lastYearYield={predication.last_four_years_yield[String(lastYear)]}
+        lastYearYield={lastYearYield}
         prediction={predication.predicted_yield_qha}
         season={formData.season}
       />
