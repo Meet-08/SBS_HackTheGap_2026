@@ -1,0 +1,88 @@
+name: Infrastructure & Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "terraform/**"
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  TF_CLOUD_ORGANIZATION: "Meet-08"
+  TF_WORKSPACE: "SBS_HackTheGap_2026"
+  TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
+  AWS_REGION: ap-south-1
+
+jobs:
+  terraform:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    outputs:
+      ec2_public_ips: ${{ steps.tf-output.outputs.ec2_public_ips }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Terraform Init
+        working-directory: ./terraform
+        run: terraform init
+
+      - name: Terraform Validate
+        working-directory: ./terraform
+        run: terraform validate
+
+      - name: Terraform Plan
+        working-directory: ./terraform
+        run: terraform plan -no-color
+
+      - name: Terraform Apply
+        working-directory: ./terraform
+        run: terraform apply -auto-approve -no-color
+
+      - name: Get Terraform Outputs
+        id: tf-output
+        working-directory: ./terraform
+        run: |
+          echo "ec2_public_ips=$(terraform output -json ec2_public_ips)" >> $GITHUB_OUTPUT
+
+  wait-for-instance:
+    name: Wait for EC2 Instance
+    needs: terraform
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for instance to be ready
+        run: |
+          echo "Waiting 60 seconds for EC2 instance to be fully initialized..."
+          sleep 60
+
+  deploy:
+    name: Deploy with Ansible
+    needs: [terraform, wait-for-instance]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via Ansible
+        uses: ./.github/actions/deploy-using-ansible
+        with:
+          ssh-key-name: ${{ vars.SSH_KEY_NAME }}
+          ssh-private-key: ${{ secrets.SSH_KEY_B64 }}
+          role-arn: ${{ secrets.AWS_ROLE_ARN }}
+          env-vars: |
+            AZURE_OPENAI_API_KEY=${{ secrets.AZURE_OPENAI_API_KEY }}
+            AZURE_OPENAI_ENDPOINT=${{ secrets.AZURE_OPENAI_ENDPOINT }}
+            SECRET_KEY=${{ secrets.SECRET_KEY }}
+            GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
+            GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
+            FACEBOOK_CLIENT_ID=${{ secrets.FACEBOOK_CLIENT_ID }}
+            FACEBOOK_CLIENT_SECRET=${{ secrets.FACEBOOK_CLIENT_SECRET }}

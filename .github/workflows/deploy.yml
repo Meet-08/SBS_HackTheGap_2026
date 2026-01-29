@@ -1,0 +1,70 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/*.md"
+
+jobs:
+  detect-changes:
+    name: Detect Changed Services
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+      has-changes: ${{ steps.set-matrix.outputs.has-changes }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: ./.github/actions/set-matrix
+        id: set-matrix
+        with:
+          services: |
+            backend=sbs_backend
+            frontend=sbs_frontend
+            python-ml=sbs_ml
+
+  build-and-push:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.has-changes == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJson(needs.detect-changes.outputs.matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build & push service
+        uses: ./.github/actions/docker-build-push
+        with:
+          context: ./${{ matrix.service.dir }}
+          image: ${{ matrix.service.image }}
+          dockerhub-username: ${{ vars.DOCKERHUB_USERNAME }}
+          dockerhub-token: ${{ secrets.DOCKERHUB_TOKEN }}
+          build-args: |
+            VITE_API_BASE_URL=${{ vars.VITE_API_BASE_URL }}
+            VITE_OAUTH_URL=${{ vars.VITE_OAUTH_URL }}
+
+  Deploy:
+    needs: [detect-changes, build-and-push]
+    runs-on: ubuntu-latest
+    if: needs.detect-changes.outputs.has-changes == 'true'
+    steps:
+      - name: Deploy via Ansible
+        uses: ./.github/actions/deploy-ansible
+        with:
+          ssh-key-name: ${{ vars.SSH_KEY_NAME }}
+          ssh-private-key: ${{ secrets.SSH_KEY_B64 }}
+          role-arn: ${{ secrets.AWS_ROLE_ARN }}
+          env-vars: |
+            AZURE_OPENAI_API_KEY=${{ secrets.AZURE_OPENAI_API_KEY }}
+            AZURE_OPENAI_ENDPOINT=${{ secrets.AZURE_OPENAI_ENDPOINT }}
+            SECRET_KEY=${{ secrets.SECRET_KEY }}
+            GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}
+            GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}
+            FACEBOOK_CLIENT_ID=${{ secrets.FACEBOOK_CLIENT_ID }}
+            FACEBOOK_CLIENT_SECRET=${{ secrets.FACEBOOK_CLIENT_SECRET }}
