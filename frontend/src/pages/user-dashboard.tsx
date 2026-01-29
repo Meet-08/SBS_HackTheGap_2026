@@ -1,7 +1,6 @@
-import { useAppDispatch, useAppSelector } from "@/app/hooks";
+import { useAppSelector } from "@/app/hooks";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { logout } from "@/redux/authSlice";
 import {
   ArrowRight,
   CloudRain,
@@ -92,14 +91,14 @@ const weatherInfo = {
 };
 
 const UserDashboard = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.authReducer);
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    await dispatch(logout());
-    navigate("/");
-  };
+  // const handleLogout = async () => {
+  //   await dispatch(logout());
+  //   navigate("/");
+  // };
 
   const firstName = user?.firstName || "Farmer";
 
@@ -108,7 +107,7 @@ const UserDashboard = () => {
       {/* Main Content */}
       <div className="px-4 md:px-8 lg:px-16 py-6 md:py-8">
         {/* Welcome Banner */}
-        <div className="bg-gradient-to-r from-[#758D45] to-[#5c7238] rounded-2xl p-6 md:p-8 mb-6 text-white shadow-lg">
+        <div className="bg-linear-to-r from-[#758D45] to-[#5c7238] rounded-2xl p-6 md:p-8 mb-6 text-white shadow-lg">
           <h1 className="text-2xl md:text-3xl font-bold mb-2">
             🌾 Namaste, {firstName}!
           </h1>
@@ -127,7 +126,7 @@ const UserDashboard = () => {
 
         {/* Weather & Quick Info */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
-          <Card className="bg-gradient-to-br from-[#FFF8E7] to-[#FFE4B5] border-[#F5DEB3]">
+          <Card className="bg-linear-to-br from-[#FFF8E7] to-[#FFE4B5] border-[#F5DEB3]">
             <CardContent className="p-4 text-center">
               <Sun className="size-8 text-[#D97706] mx-auto mb-2" />
               <p className="text-2xl font-bold text-[#92400E]">
@@ -137,7 +136,7 @@ const UserDashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD] border-[#7DD3FC]">
+          <Card className="bg-linear-to-br from-[#E0F2FE] to-[#BAE6FD] border-[#7DD3FC]">
             <CardContent className="p-4 text-center">
               <CloudRain className="size-8 text-[#0284C7] mx-auto mb-2" />
               <p className="text-2xl font-bold text-[#0369A1]">
@@ -147,7 +146,7 @@ const UserDashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-[#ECFDF5] to-[#D1FAE5] border-[#6EE7B7]">
+          <Card className="bg-linear-to-br from-[#ECFDF5] to-[#D1FAE5] border-[#6EE7B7]">
             <CardContent className="p-4 text-center">
               <Leaf className="size-8 text-[#059669] mx-auto mb-2" />
               <p className="text-2xl font-bold text-[#047857]">3</p>
@@ -155,7 +154,7 @@ const UserDashboard = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-[#FEF3C7] to-[#FDE68A] border-[#FCD34D]">
+          <Card className="bg-linear-to-br from-[#FEF3C7] to-[#FDE68A] border-[#FCD34D]">
             <CardContent className="p-4 text-center">
               <TrendingUp className="size-8 text-[#B45309] mx-auto mb-2" />
               <p className="text-2xl font-bold text-[#92400E]">Good</p>

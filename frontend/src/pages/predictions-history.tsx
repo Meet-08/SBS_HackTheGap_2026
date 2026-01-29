@@ -1,7 +1,5 @@
-import { useAppDispatch, useAppSelector } from "@/app/hooks";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { logout } from "@/redux/authSlice";
 import { ArrowLeft, Leaf, MapPin, Thermometer, TrendingUp } from "lucide-react";
 import { useNavigate } from "react-router";
 
@@ -100,14 +98,14 @@ const allPredictions = [
 ];
 
 const PredictionsHistory = () => {
-  const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state.authReducer);
+  // const dispatch = useAppDispatch();
+  // const { user } = useAppSelector((state) => state.authReducer);
   const navigate = useNavigate();
 
-  const handleLogout = async () => {
-    await dispatch(logout());
-    navigate("/");
-  };
+  // const handleLogout = async () => {
+  //   await dispatch(logout());
+  //   navigate("/");
+  // };
 
   return (
     <div className="min-h-screen bg-[#FAF7F2]">
