@@ -11,7 +11,7 @@ module "sbs_ec2" {
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "6.2.0"
 
-  ami                   = "ami-02b8269d5e85954ef"
+  ami                   = "ami-019715e0d74f695be"
   count                 = 1
   instance_type         = "t3.small"
   key_name              = aws_key_pair.sbs_key.key_name
