@@ -294,3 +294,11 @@ docker run -p 8080:8080 \
   -e SPRING_DATASOURCE_URL=jdbc:postgresql://host:5432/sbs \
   sbs-backend
 ```
+
+### CI/CD Integration
+
+The backend service is part of the project's **GitHub Actions** pipeline. On every push to `main` that modifies this directory:
+
+1. **Build**: `./gradlew bootJar` is executed.
+2. **Dockerize**: A new Docker image is built.
+3. **Deploy**: The image is pushed to Docker Hub and deployed to the EC2 instance via Ansible.

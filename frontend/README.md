@@ -306,3 +306,11 @@ docker build -t sbs-frontend .
 # Run container
 docker run -p 5173:5173 sbs-frontend
 ```
+
+### CI/CD Integration
+
+The frontend service is part of the automated **GitHub Actions** pipeline. When changes are detected in this directory:
+
+1. **Dockerize**: A Docker image is built using the `Dockerfile`.
+2. **Push**: The image is pushed to Docker Hub.
+3. **Deploy**: The new frontend is automatically deployed to the production environment on EC2.

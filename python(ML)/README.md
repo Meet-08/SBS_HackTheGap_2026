@@ -357,11 +357,16 @@ docker run -p 8000:8000 \
 
 Top features influencing predictions across all models:
 
-1. **rain_total** - Total seasonal rainfall
-2. **avg_temp** - Average temperature
-3. **soil_oc** - Soil organic carbon
-4. **humidity_avg** - Average humidity
-5. **clay_pct** - Clay percentage in soil
 6. **solar_avg** - Solar radiation
 7. **season** - Growing season (Kharif/Rabi)
 8. **soil_ph** - Soil acidity level
+
+---
+
+## 🚀 CI/CD Integration
+
+This service is fully integrated into the project's **GitHub Actions** CI/CD pipeline.
+
+- **Change Detection**: Modifications to `python(ML)/` trigger the pipeline.
+- **Build**: The Docker image is rebuilt based on the Python environment.
+- **Deployment**: Updated images are deployed to EC2 using Ansible.

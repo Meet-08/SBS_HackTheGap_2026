@@ -227,6 +227,34 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
+---
+
+## 🚀 CI/CD Pipeline
+
+This project utilizes highly automated **GitHub Actions** workflows for Continuous Integration and Continuous Deployment.
+
+### Workflows
+
+- **Infrastructure (`infra.yml`)**: Provisions AWS resources using Terraform and configures them with Ansible.
+- **Microservices Deployment (`deploy.yml`)**:
+  - Detects changes in specific services (`backend`, `frontend`, `python(ML)`).
+  - Builds Docker images for changed services.
+  - Pushes images to Docker Hub.
+  - Deploys updated services to EC2 via Ansible.
+
+### Automation Triggers
+
+- **Push to Main**: Automatically triggers the pipeline.
+- **Smart Change Detection**: Only rebuilds and redeploys services that have changed in the latest commit to optimize build time.
+
 ## 👥 Team
 
 Built with ❤️ for **SBS HackTheGap 2026**
+
+### Team Members
+
+- **Meet Bhuva**
+- **Swara Natekar**
+- **Het Goswami**
+- **Janvi Bhanderi**
+- **Angel Christian**

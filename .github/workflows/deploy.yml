@@ -26,7 +26,7 @@ jobs:
           services: |
             backend=sbs_backend
             frontend=sbs_frontend
-            python-ml=sbs_ml
+            python(ML)=sbs_ml
 
   build-and-push:
     needs: detect-changes
@@ -55,7 +55,7 @@ jobs:
     if: needs.detect-changes.outputs.has-changes == 'true'
     steps:
       - name: Deploy via Ansible
-        uses: ./.github/actions/deploy-ansible
+        uses: ./.github/actions/deploy-using-ansible
         with:
           ssh-key-name: ${{ vars.SSH_KEY_NAME }}
           ssh-private-key: ${{ secrets.SSH_KEY_B64 }}

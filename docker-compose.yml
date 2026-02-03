@@ -39,7 +39,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/sbs
       - SPRING_DATASOURCE_USERNAME=${DB_USERNAME}
       - SPRING_DATASOURCE_PASSWORD=${DB_PASSWORD}
-      - SPRING_APPLICATION_FRONTEND_URLS=http://localhost
+      - SPRING_APPLICATION_FRONTEND_URLS=http://localhost,https://meet-08.me,https://www.meet-08.me,http://meet-08.me,http://www.meet-08.me
       - SPRING_APPLICATION_ML_SERVICE_URL=http://sbs-ml:8000
       - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
       - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}

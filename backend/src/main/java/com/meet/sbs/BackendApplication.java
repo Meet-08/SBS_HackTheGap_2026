@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 public class BackendApplication {
 
     public static void main(String[] args) {
+        // Trigger CI
         SpringApplication.run(BackendApplication.class, args);
     }
 
