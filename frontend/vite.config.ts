@@ -4,7 +4,7 @@ import path from "path";
 import { defineConfig } from "vite";
 
 // https://vite.dev/config/
-// Trigger CI - Attempt 2
+// Trigger CI - Attempt 3
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
