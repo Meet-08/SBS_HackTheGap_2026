@@ -54,6 +54,9 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.detect-changes.outputs.has-changes == 'true'
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Deploy via Ansible
         uses: ./.github/actions/deploy-using-ansible
         with:
